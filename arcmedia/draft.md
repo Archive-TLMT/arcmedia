@@ -1,7 +1,7 @@
 ---
 title: The Archive Primary Content Type for Multipurpose Internet Mail Extensions
-abbrev: archive
-docname: draft-kerwin-archive-00
+abbrev: arcmedia
+docname: draft-kerwin-arcmedia-00
 date: 2014
 category: info
 
