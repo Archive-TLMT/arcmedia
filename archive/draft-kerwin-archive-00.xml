@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <?xml-stylesheet type="text/xsl" href="rfc2629.xslt" ?>
+
+<!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
+]>
+
+<rfc ipr="trust200902" docName="draft-kerwin-archive-00" category="info">
+
+<?rfc toc="yes"?>
+<?rfc tocindent="yes"?>
+<?rfc sortrefs="yes"?>
+<?rfc symrefs="yes"?>
+<?rfc strict="yes"?>
+<?rfc compact="yes"?>
+<?rfc comments="yes"?>
+<?rfc inline="yes"?>
+
+  <front>
+    <title abbrev="archive">The Archive Primary Content Type for Multipurpose Internet Mail Extensions</title>
+
+    <author initials="M." surname="Kerwin" fullname="Matthew Kerwin">
+      <organization></organization>
+      <address>
+        <email>matthew@kerwin.net.au</email>
+        <uri>http://matthew.kerwin.net.au/</uri>
+      </address>
+    </author>
+
+    <date year="2014"/>
+
+    <area>General</area>
+    
+    <keyword>Internet-Draft</keyword>
+
+    <abstract>
+
+
+<t>This document defines a new primary content-type to be known as
+“archive”, which defines a fundamental type of content with unique
+presentational, hardware, and processing aspects.</t>
+
+
+
+    </abstract>
+
+
+  </front>
+
+  <middle>
+
+
+<section anchor="introduction" title="Introduction">
+
+<t>The purpose of this memo is to propose an update to <xref target="RFC2045"/>
+to include a new primary content-type to be known as “model”.
+<xref target="RFC2045"/> describes mechanisms for specifying and describing the
+format of Internet Message Bodies via content-type/subtype pairs. We
+believe that “model” defines a fundamental type of content with
+unique presentational, hardware, and processing aspects.  Various
+subtypes of this primary type are immediately anticipated but will be
+covered under separate documents.</t>
+
+<section anchor="overview" title="Overview">
+
+<t>This document will outline what an archive is, show examples of
+archives, and discuss the benefits of grouping archives together.</t>
+
+<t>This document is a discussion document for an agreed definition,
+intended eventually to form a standard accepted extension to
+<xref target="RFC2045"/>.</t>
+
+</section>
+<section anchor="notational-conventions" title="Notational Conventions">
+
+<t>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”,
+“SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this
+document are to be interpreted as described in <xref target="RFC2119"/>.</t>
+
+</section>
+</section>
+<section anchor="definition" title="Definition of an archive">
+
+<t>An archive primary MIME type is a file that is composed of one or more
+files along with metadata.  Archive files are used to collect multiple
+data files together into a single file for easier portability and
+storage, or simple to compress files to use less storage space.</t>
+
+</section>
+<section anchor="consultation" title="Consultation Mechanisms">
+
+<t>Before proposing a subtype for the archive/* primary type, it is
+suggested that the subtype author examine the definition (above) of
+what an archive/* is and the listing (below) of what an archive/* is
+not.  Additional consultations with the authors of the existing
+archive/* subtypes is also suggested.</t>
+
+</section>
+<section anchor="encoding" title="Encoding and Transport">
+
+<t>Unrecognized subtypes of archive SHOULD at a minimum be treated
+as “application/octet-stream”.  Implementations MAY optionally
+elect to pass subtypes of archive that they do not specifically
+recognize to a robust general-purpose archive viewing application, if
+such an application is available.</t>
+
+<t>Unless noted in the subtype registration, subtypes of model SHOULD be
+assumed to contain binary data, implying a content encoding of base64
+for email and binary transfer for ftp and http.</t>
+
+<t>The formal syntax for the subtypes of the model primary type SHOULD
+look like this:</t>
+
+<t><list style="hanging">
+  <t hangText='Media type name:'><vspace blankLines='0'/>
+  archive</t>
+  <t hangText='Media subtype name:'><vspace blankLines='0'/>
+  xxxxxxxx</t>
+  <t hangText='Required parameters:'><vspace blankLines='0'/>
+  none</t>
+  <t hangText='Optional parameters:'><vspace blankLines='0'/>
+  TBD</t>
+  <t hangText='Encoding considerations:'><vspace blankLines='0'/>
+  base64 encoding is recommended when transmitting archive/* documents
+through MIME electronic mail.</t>
+  <t hangText='Security considerations:'><vspace blankLines='0'/>
+  see <xref target="security"/> below</t>
+  <t hangText='Published specification:'><vspace blankLines='0'/>
+  This document.</t>
+  <t>See <xref target="subtypes"/> for references to some of the expected subtypes.</t>
+  <t hangText='Person and email address to contact for further information:'><vspace blankLines='0'/>
+  TBD</t>
+</list></t>
+
+<t>The optional parameters consist of starting conditions and variable
+values used as part of the subtypes.</t>
+
+</section>
+<section anchor="security" title="Security Considerations">
+
+<t>TBD</t>
+
+</section>
+
+
+  </middle>
+
+  <back>
+
+    <references title='Normative References'>
+
+
+
+
+
+<reference anchor='RFC2045'>
+
+<front>
+<title abbrev='Internet Message Bodies'>Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies</title>
+<author initials='N.' surname='Freed' fullname='Ned Freed'>
+<organization>Innosoft International, Inc.</organization>
+<address>
+<postal>
+<street>1050 East Garvey Avenue South</street>
+<city>West Covina</city>
+<region>CA</region>
+<code>91790</code>
+<country>US</country></postal>
+<phone>+1 818 919 3600</phone>
+<facsimile>+1 818 919 3614</facsimile>
+<email>ned@innosoft.com</email></address></author>
+<author initials='N.S.' surname='Borenstein' fullname='Nathaniel S. Borenstein'>
+<organization>First Virtual Holdings</organization>
+<address>
+<postal>
+<street>25 Washington Avenue</street>
+<city>Morristown</city>
+<region>NJ</region>
+<code>07960</code>
+<country>US</country></postal>
+<phone>+1 201 540 8967</phone>
+<facsimile>+1 201 993 3032</facsimile>
+<email>nsb@nsb.fv.com</email></address></author>
+<date year='1996' month='November' />
+<abstract>
+<t>STD 11, RFC 822, defines a message representation protocol specifying considerable detail about US-ASCII message headers, and leaves the message content, or message body, as flat US-ASCII text.  This set of documents, collectively called the Multipurpose Internet Mail Extensions, or MIME, redefines the format of messages to allow for</t>
+<t>(1)   textual message bodies in character sets other than US-ASCII,</t>
+<t>(2)   an extensible set of different formats for non-textual message bodies,</t>
+<t>(3)   multi-part message bodies, and</t>
+<t>(4)   textual header information in character sets other than US-ASCII.</t>
+<t>These documents are based on earlier work documented in RFC 934, STD 11, and RFC 1049, but extends and revises them.  Because RFC 822 said so little about message bodies, these documents are largely orthogonal to (rather than a revision of) RFC 822.</t>
+<t>This initial document specifies the various headers used to describe the structure of MIME messages. The second document, RFC 2046, defines the general structure of the MIME media typing system and defines an initial set of media types. The third document, RFC 2047, describes extensions to RFC 822 to allow non-US-ASCII text data in Internet mail header fields. The fourth document, RFC 2048, specifies various IANA registration procedures for MIME-related facilities. The fifth and final document, RFC 2049, describes MIME conformance
+  criteria as well as providing some illustrative examples of MIME message formats, acknowledgements, and the bibliography.</t>
+<t>These documents are revisions of RFCs 1521, 1522, and 1590, which themselves were revisions of RFCs 1341 and 1342.  An appendix in RFC 2049 describes differences and changes from previous versions.</t></abstract></front>
+
+<seriesInfo name='RFC' value='2045' />
+<format type='TXT' octets='72932' target='http://www.rfc-editor.org/rfc/rfc2045.txt' />
+</reference>
+
+
+
+<reference anchor='RFC2119'>
+
+<front>
+<title abbrev='RFC Key Words'>Key words for use in RFCs to Indicate Requirement Levels</title>
+<author initials='S.' surname='Bradner' fullname='Scott Bradner'>
+<organization>Harvard University</organization>
+<address>
+<postal>
+<street>1350 Mass. Ave.</street>
+<street>Cambridge</street>
+<street>MA 02138</street></postal>
+<phone>- +1 617 495 3864</phone>
+<email>sob@harvard.edu</email></address></author>
+<date year='1997' month='March' />
+<area>General</area>
+<keyword>keyword</keyword>
+<abstract>
+<t>
+   In many standards track documents several words are used to signify
+   the requirements in the specification.  These words are often
+   capitalized.  This document defines these words as they should be
+   interpreted in IETF documents.  Authors who follow these guidelines
+   should incorporate this phrase near the beginning of their document:
+
+<list>
+<t>
+      The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED",  "MAY", and
+      "OPTIONAL" in this document are to be interpreted as described in
+      RFC 2119.
+</t></list></t>
+<t>
+   Note that the force of these words is modified by the requirement
+   level of the document in which they are used.
+</t></abstract></front>
+
+<seriesInfo name='BCP' value='14' />
+<seriesInfo name='RFC' value='2119' />
+<format type='TXT' octets='4723' target='http://www.rfc-editor.org/rfc/rfc2119.txt' />
+<format type='HTML' octets='17970' target='http://xml.resource.org/public/rfc/html/rfc2119.html' />
+<format type='XML' octets='5777' target='http://xml.resource.org/public/rfc/xml/rfc2119.xml' />
+</reference>
+
+
+
+
+    </references>
+
+
+
+<section anchor="subtypes" title="Expected Subtypes">
+
+<t>TBD</t>
+
+</section>
+
+
+  </back>
+</rfc>
+
