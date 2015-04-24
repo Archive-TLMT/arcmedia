@@ -5,7 +5,7 @@
 <head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
   <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
 
-  <title>The Archive Primary Media Type for File Archives</title>
+  <title>The Archive Top-Level Media Type for File Archives</title>
 
   <style type="text/css" title="Xml2Rfc (sans serif)">
   /*<![CDATA[*/
@@ -375,17 +375,15 @@
 
   <link href="#rfc.toc" rel="Contents"/>
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
-<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Overview"/>
-<link href="#rfc.section.1.2" rel="Chapter" title="1.2 Notational Conventions"/>
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Notational Conventions"/>
 <link href="#rfc.section.2" rel="Chapter" title="2 Definition of an archive"/>
-<link href="#rfc.section.3" rel="Chapter" title="3 Consultation Mechanisms"/>
-<link href="#rfc.section.4" rel="Chapter" title="4 Encoding and Transport"/>
-<link href="#rfc.section.5" rel="Chapter" title="5 Common Required and Optional Parameters"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 Split Archives"/>
-<link href="#rfc.section.7" rel="Chapter" title="7 Fragment Identifier Syntax"/>
-<link href="#rfc.section.8" rel="Chapter" title="8 Piped-Composite Type Suffix Syntax"/>
-<link href="#rfc.section.9" rel="Chapter" title="9 Security Considerations"/>
-<link href="#rfc.references" rel="Chapter" title="10 Normative References"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 Encoding and Transport"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 Common Required and Optional Parameters"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Split Archives"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Fragment Identifier Syntax"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Piped-Composite Type Suffix Syntax"/>
+<link href="#rfc.section.8" rel="Chapter" title="8 Security Considerations"/>
+<link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
 <link href="#rfc.appendix.A" rel="Chapter" title="A Expected Subtypes"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
@@ -396,8 +394,8 @@
   <meta name="dct.creator" content="Leonard, S. and M. Kerwin" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-arcmedia-type-01" />
   <meta name="dct.issued" scheme="ISO8601" content="2015-4-24" />
-  <meta name="dct.abstract" content="This document defines a new primary content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects." />
-  <meta name="description" content="This document defines a new primary content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects." />
+  <meta name="dct.abstract" content="This document defines a new top-level content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects." />
+  <meta name="description" content="This document defines a new top-level content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects." />
 
 </head>
 
@@ -431,13 +429,13 @@
     </tbody>
   </table>
 
-  <p class="title">The Archive Primary Media Type for File Archives<br />
+  <p class="title">The Archive Top-Level Media Type for File Archives<br />
   <span class="filename">draft-arcmedia-type-01</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document defines a new primary content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects.</p>
+<p>This document defines a new top-level content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -457,17 +455,15 @@
   <ul class="toc">
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
-<li>1.1.   <a href="#rfc.section.1.1">Overview</a></li>
-<li>1.2.   <a href="#rfc.section.1.2">Notational Conventions</a></li>
+<li>1.1.   <a href="#rfc.section.1.1">Notational Conventions</a></li>
 <li>2.   <a href="#rfc.section.2">Definition of an archive</a></li>
-<li>3.   <a href="#rfc.section.3">Consultation Mechanisms</a></li>
-<li>4.   <a href="#rfc.section.4">Encoding and Transport</a></li>
-<li>5.   <a href="#rfc.section.5">Common Required and Optional Parameters</a></li>
-<li>6.   <a href="#rfc.section.6">Split Archives</a></li>
-<li>7.   <a href="#rfc.section.7">Fragment Identifier Syntax</a></li>
-<li>8.   <a href="#rfc.section.8">Piped-Composite Type Suffix Syntax</a></li>
-<li>9.   <a href="#rfc.section.9">Security Considerations</a></li>
-<li>10.   <a href="#rfc.references">Normative References</a></li>
+<li>3.   <a href="#rfc.section.3">Encoding and Transport</a></li>
+<li>4.   <a href="#rfc.section.4">Common Required and Optional Parameters</a></li>
+<li>5.   <a href="#rfc.section.5">Split Archives</a></li>
+<li>6.   <a href="#rfc.section.6">Fragment Identifier Syntax</a></li>
+<li>7.   <a href="#rfc.section.7">Piped-Composite Type Suffix Syntax</a></li>
+<li>8.   <a href="#rfc.section.8">Security Considerations</a></li>
+<li>9.   <a href="#rfc.references">Normative References</a></li>
 <li>Appendix A.   <a href="#rfc.appendix.A">Expected Subtypes</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
@@ -475,14 +471,11 @@
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
-<p id="rfc.section.1.p.1">The purpose of this memo is to propose an update to <a href="#RFC2045">[RFC2045]</a> to include a new primary content-type to be known as &#8220;archive&#8221;.  <a href="#RFC2045">[RFC2045]</a> describes mechanisms for specifying and describing the format of Internet Message Bodies via content-type/subtype pairs.  &#8220;archive&#8221; defines a fundamental type of content with unique presentational, hardware, and processing aspects.  Various subtypes of this primary type are immediately anticipated, and will be covered under separate documents.</p>
-<h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#overview" id="overview">Overview</a></h1>
-<p id="rfc.section.1.1.p.1">This document will outline what an archive is, show examples of archives, and discuss the benefits of grouping archives together.</p>
-<p id="rfc.section.1.1.p.2">This document is a discussion document for an agreed definition, intended eventually to form a standard accepted extension to <a href="#RFC2045">[RFC2045]</a>.</p>
-<h1 id="rfc.section.1.2"><a href="#rfc.section.1.2">1.2.</a> <a href="#notational-conventions" id="notational-conventions">Notational Conventions</a></h1>
-<p id="rfc.section.1.2.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
+<p id="rfc.section.1.p.1">The purpose of this memo is to propose an update to <a href="#RFC2045">[RFC2045]</a> to include a new top-level content-type to be known as &#8220;archive&#8221;.  <a href="#RFC6838">[RFC6838]</a> describes mechanisms for specifying and describing the format of Internet Message Bodies via content-type/subtype pairs.  &#8220;archive&#8221; defines a fundamental type of content with unique presentational, hardware, and processing aspects.  Various subtypes of this top-level type are immediately anticipated, and will be covered under separate documents.</p>
+<h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#notational-conventions" id="notational-conventions">Notational Conventions</a></h1>
+<p id="rfc.section.1.1.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#definition" id="definition">Definition of an archive</a></h1>
-<p id="rfc.section.2.p.1">An archive primary media type identifies data that represents one or more files [cite] along with metadata.  Archives are used to collect multiple data files together into a single file for easier portability and storage. Archive formats can provide many optional services, including:</p>
+<p id="rfc.section.2.p.1">An archive top-level media type identifies data that represents one or more objects along with metadata.  Archives are used to collect multiple data objects together into a single object for easier portability and storage. Archive formats can provide many optional services, including:</p>
 <p/>
 
 <ol>
@@ -495,29 +488,12 @@
   <li>volume-splitting (archive split into multiple contents)</li>
   <li>block storage</li>
 </ol>
-<p id="rfc.section.2.p.3">Formats and techniques that perform one or more of these services already exist under separate registrations. For example, the Content- Encoding header can be used to compress Internet message content. The distinguishing feature of the archive primary type is that these services are integrated into the format itself, along with the inclusion of file-specific metadata. Virtually all formats contemplated under this primary type are designed to concatenate multiple files into a single data stream, along with filenames and other metadata. When an Internet-facing application handles content labeled with this type, it SHOULD provide handling consistent with the archive as a discrete data item. For example, an Internet mail user agent would display an archive-labeled type with an archive icon, possibly with a preview of the files contained therein (as opposed to automatically traversing its contents, as it would for multipart-labeled content).</p>
-<p id="rfc.section.2.p.4">Common operations include creating an archive, identifying files in an archive, adding to an archive, backing up to an archive, extracting an archive, restoring from an archive, deleting from an archive, mounting and unmounting an archive, [[TODO: executing an archive?]], and installing and uninstalling an archive.</p>
-<p/>
-
-<ul>
-  <li>Creating: taking files from a filesystem and representing those files in an archive.</li>
-  <li>Identifying files: parsing an archive&#8217;s format, extracting information about files represented in the archive.</li>
-  <li>Adding: parsing an archive&#8217;s format, adding files or non-file data to the archive. In virtually all cases, at least some part of the archive&#8217;s content will be modified (though perhaps only at the end). Unlike, for instance, text media types, concatenating two separate archive contents <em>never</em> yields a valid composite archive.</li>
-  <li>Backing up: taking some or all of a filesystem and representing the filesystem in an archive, with the express intention of recording the files as they exist in a source filesystem at the time of backing up. For example, the compression, encryption, and access control list (permissions) properties of the files would be preserved.</li>
-  <li>Extracting: parsing an archive&#8217;s format, copying file data (or file metadata) out of the archive into one or more files on a destination filesystem. This operation implies that at least some file metadata will be preserved, while other file metadata may be adjusted or added to adapt to the local environment.</li>
-  <li>Restoring: parsing an archive&#8217;s format, copying file data out of the archive into the destination filesystem, with the express intention of recreating the files as they existed in a source filesystem at the time of backing up. For example, the compression, encryption, and access control list (permissions) properties of the files would be preserved.</li>
-  <li>Deleting: parsing an archive&#8217;s format, removing file data (or metadata) from the archive, requiring changes to the archive&#8217;s contents. Some archive formats permit orphan data in the archive content; other formats require re-serializing some or all of the archive.</li>
-  <li>Mounting and unmounting: Mapping an archive&#8217;s semantics directly to a filesystem, so that the files represented in the archive can be accessed using the filesystem&#8217;s namespace with typical filesystem APIs. Rather than being backed by a physical block storage device, that part of the filesystem is backed by the archive.</li>
-  <li>Executing [[NB: this may be controversial; it is worth discussing]]: Identifying executable semantics of an archive, and causing code to execute.</li>
-  <li>Installing and uninstalling [[NB: this may be controversial; it is worth discussing]]: Treating the archive as a software package, extracting certain contents in the archive and executing other contents in the archive, according to some software packaging protocol.</li>
-</ul>
-<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#consultation" id="consultation">Consultation Mechanisms</a></h1>
-<p id="rfc.section.3.p.1">Before proposing a subtype for the archive/* primary type, it is suggested that the subtype author examine the definition (above) of what an archive/* is and the listing (below) of what an archive/* is not.  Additional consultations with the authors of the existing archive/* subtypes is also suggested.</p>
-<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#encoding" id="encoding">Encoding and Transport</a></h1>
-<p id="rfc.section.4.p.1">Unrecognized subtypes of archive SHOULD at a minimum be treated as &#8220;archive/file&#8221;.  Like &#8220;application/octet-stream&#8221;, the purpose of the &#8220;archive/file&#8221; is to provide default handling; it does not represent a particular archive format. Implementations SHOULD pass subtypes of archive that they do not specifically recognize to a robust general-purpose archive viewing application, if such an application is available.</p>
-<p id="rfc.section.4.p.2">If default archive (archive/file) handling is not supported, it is appropriate to treat the archive like &#8220;application/octet-stream&#8221;.</p>
-<p id="rfc.section.4.p.3">Unless noted in the subtype registration, subtypes of archive SHALL be assumed to contain binary data, implying a content encoding of base64 for email and binary transfer for ftp and http.</p>
-<p id="rfc.section.4.p.4">The formal syntax for the subtypes of the model primary type SHOULD look like this:</p>
+<p id="rfc.section.2.p.3">Formats and techniques that support one or more of these services already exist under separate registrations. For example, the Content- Encoding header can be used to compress Internet message content. The distinguishing feature of the archive top-level type is that these services are integrated into the format itself, along with the inclusion of object-specific metadata. Virtually all formats contemplated under this top-level type are designed to concatenate multiple objects into a single data stream, along with names and other metadata. When an Internet-facing application handles content labeled with this type, it SHOULD provide handling consistent with the archive as a discrete data item. For example, an Internet mail user agent would display an archive-labeled type with an archive icon, possibly with a preview of the objects contained therein (as opposed to automatically traversing its contents).</p>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#encoding" id="encoding">Encoding and Transport</a></h1>
+<p id="rfc.section.3.p.1">Unrecognized subtypes of archive SHOULD be treated as &#8220;archive/file&#8221;.  Like &#8220;application/octet-stream&#8221;, the purpose of the &#8220;archive/file&#8221; is to provide default handling; it does not represent a particular archive format. Implementations SHOULD pass subtypes of archive that they do not specifically recognize to a robust general-purpose archive processing application, if such an application is available.</p>
+<p id="rfc.section.3.p.2">If default archive (archive/file) handling is not supported, the archive MAY be treated as if it were &#8220;application/octet-stream&#8221;.</p>
+<p id="rfc.section.3.p.3">Unless noted in the subtype registration, subtypes of archive MUST be assumed to contain binary data, implying a content encoding of base64 for email and binary transfer for ftp and http.</p>
+<p id="rfc.section.3.p.4">The formal syntax for the subtypes of the archive top-level type SHOULD look like this:</p>
 <p/>
 
 <ul class="empty">
@@ -534,7 +510,7 @@
       <dt>Encoding considerations:</dt>
       <dd style="margin-left: 8"><br/> base64 encoding is recommended when transmitting archive/* documents through MIME electronic mail.</dd>
       <dt>Security considerations:</dt>
-      <dd style="margin-left: 8"><br/> see <a href="#security">Section 9</a> below</dd>
+      <dd style="margin-left: 8"><br/> see <a href="#security">Section 8</a> below</dd>
       <dt>Published specification:</dt>
       <dd style="margin-left: 8"><br/> TBD</dd>
       <dt>Applications that use this media type:</dt>
@@ -570,24 +546,24 @@
   </li>
   <li>(Any other information that the author deems interesting may be added below this line.)</li>
 </ul>
-<p id="rfc.section.4.p.6">The optional parameters consist of starting conditions and variable values used as part of the subtypes.</p>
-<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#parameters" id="parameters">Common Required and Optional Parameters</a></h1>
-<p id="rfc.section.5.p.1">Unlike the text primary media type (for instance), virtually all archive formats have been designed with almost all of the information required for interpretation contained within the format. Therefore, parameters are NOT RECOMMENDED; registrants are not expected to register additional parameters.</p>
-<p id="rfc.section.5.p.2">Regrettably, not all archive formats are as &#8220;universal&#8221; or &#8220;complete&#8221; as one might assume at first glance. This is because some archive formats are very old or are based on older formats where backwards- compatibility was a design goal; thus they were not designed with transport across the Internet in mind. The ZIP file is an example: although the modern ZIP supports Unicode [CITE], the default encoding of ZIP filenames has always been Code Page 437. Since &#8220;archive&#8221; contents are literally archives of computing history, sometimes communicating the archive as-is, rather than updating the archive to a more universal format, is necessary.</p>
-<p id="rfc.section.5.p.3">Implementations that are archive-type aware MUST support the following parameters for maximum compatibility. At the same time, new archives SHOULD NOT rely on these parameters for disambiguation; new archives SHOULD be created in such a way that &#8220;universal&#8221; interoperability is achieved with the archive&#8217;s self-contained information. [[TODO: code page&#8211;it&#8217;s like charset but only applies to certain strings in the archive, when the archive format is ambiguous; do NOT attempt to apply this parameter as one would apply charset to text/*. Endian-ness? Time/Y2K representation issues? Anything else?]]</p>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#splitarchives" id="splitarchives">Split Archives</a></h1>
-<p id="rfc.section.6.p.1">Several archive formats (notably RAR and ZIP) support split archives.  A &#8220;split archive&#8221; is an archive that is stored in multiple files (when stored as multiple files), or more generally, across multiple storage media.</p>
-<p id="rfc.section.6.p.2">The ZIP format, for example, actually has two types of splits: &#8220;split archive&#8221; and &#8220;spanned archive&#8221;. A &#8220;split archive&#8221; is a standard ZIP archive split over multiple files with the file extensions .z01, .z02, etc.; the .zip file is the last file. A &#8220;spanned archive&#8221; is the original format designed for use with swapping floppy disks. All archive files have the same filename; the format uses volume labels (presumably on floppy disks) to store disk numbers. Neither sub- format is merely a naive division of the octet stream: each ZIP file is parseable in its own right, and contains its own offset values.</p>
-<p id="rfc.section.6.p.3">The TAR format (or family of formats, including cpio and ustar) was originally designed for streaming to and from tape devices, so splitting is accomplished differently.</p>
-<p id="rfc.section.6.p.4">[[TODO: Consider how to label this content. archive/zip^01? archive/zip; split=01? Something else? How shall 01 be associated with 02, 03, etc., when the Content-Disposition: ; filename=&#8221;&#8221; parameter is &#8220;presentation-information&#8221; and may be separated from the Content-Type header information?]]</p>
-<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#fragments" id="fragments">Fragment Identifier Syntax</a></h1>
-<p id="rfc.section.7.p.1">Because all archives represent files, archives can serve as virtual filesystems. Respondents have noted that an archive&#8217;s files can be addressed by a fragment syntax that resembles a filesystem path. At the same time, archives may record files in different ways (along with different types of metadata), suggesting that a common baseline with flexible extension points is more appropriate than a fixed universal syntax. [[TODO: This will be explored in future drafts.  Note the similarities with this and the file: URI&#8230;]]</p>
-<p id="rfc.section.7.p.2">[[TODO: consider how to provide a fragment for content in the archive. NB: most archives do NOT provide Content-Type/media type information! So /foo.html being an HTML file is just an <em>assumption</em>, and possibly a very wrong one at that. There is no IETF registry for file extensions.]]</p>
-<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#piped-composite-type-suffix-syntax" id="piped-composite-type-suffix-syntax">Piped-Composite Type Suffix Syntax</a></h1>
-<p id="rfc.section.8.p.1">[[TODO: discuss tar piped through bzip2, gzip, etc. as a distinct file format, rather than an application of the Content-Encoding: header. Suggest common suffix like archive/tar|bzip2, where | is some useful character but not + since + is for structured syntaxes.]]</p>
-<h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#security" id="security">Security Considerations</a></h1>
-<p id="rfc.section.9.p.1">Archives represent files, file metadata, and filesystems; thus, security issues loom large because archives can contain just about anything. These concerns are magnified by the arbitrary transport of such data across the Internet. [[TODO: complete.]]</p>
-<h1 id="rfc.references"><a href="#rfc.references">10.</a> Normative References</h1>
+<p id="rfc.section.3.p.6">The optional parameters consist of starting conditions and variable values used as part of the subtypes.</p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#parameters" id="parameters">Common Required and Optional Parameters</a></h1>
+<p id="rfc.section.4.p.1">Archive formats usually include a range of parameters (meta-data) within the format.  Consequently, sub-types of archive SHOULD NOT specify additional parameters that are external to the format.</p>
+<p id="rfc.section.4.p.2">Regrettably, not all archive formats are as &#8220;universal&#8221; or &#8220;complete&#8221; as one might assume. This is because some archive formats are very old or are based on older formats where backwards- compatibility was a design goal; thus they were not designed with transport across the Internet in mind. The ZIP file is an example: although the modern ZIP supports Unicode [CITE], the default encoding of ZIP filenames has always been Code Page 437. Since &#8220;archive&#8221; contents are literally archives of computing history, sometimes communicating the archive as-is, rather than updating the archive to a more universal format, is necessary.</p>
+<p id="rfc.section.4.p.3">Implementations that are archive-type aware MUST support the following parameters for maximum compatibility. At the same time, new archives SHOULD NOT rely on these parameters for disambiguation; new archives SHOULD be created in such a way that &#8220;universal&#8221; interoperability is achieved with the archive&#8217;s self-contained information. [[TODO: code page&#8211;it&#8217;s like charset but only applies to certain strings in the archive, when the archive format is ambiguous; do NOT attempt to apply this parameter as one would apply charset to text/*. Endian-ness? Time/Y2K representation issues? Anything else?]]</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#splitarchives" id="splitarchives">Split Archives</a></h1>
+<p id="rfc.section.5.p.1">Several archive formats (notably RAR and ZIP) support split archives.  A &#8220;split archive&#8221; is stored in multiple files (when stored as multiple files), or more generally, across multiple storage media.</p>
+<p id="rfc.section.5.p.2">The ZIP format, for example, actually has two types of splits: &#8220;split archive&#8221; and &#8220;spanned archive&#8221;. A &#8220;split archive&#8221; is a standard ZIP archive split over multiple files with the file extensions .z01, .z02, etc.; the .zip file is the last file. A &#8220;spanned archive&#8221; is the original format designed for use with swapping floppy disks. All archive files have the same filename; the format uses volume labels (presumably on floppy disks) to store disk numbers. Neither sub- format is merely a naive division of the octet stream: each ZIP file is parseable in its own right, and contains its own offset values.</p>
+<p id="rfc.section.5.p.3">The TAR format (or family of formats, including cpio and ustar) was originally designed for streaming to and from tape devices, so splitting is accomplished differently.</p>
+<p id="rfc.section.5.p.4">[[TODO: Consider how to label this content. archive/zip^01? archive/zip; split=01? Something else? How shall 01 be associated with 02, 03, etc., when the Content-Disposition: ; filename=&#8221;&#8221; parameter is &#8220;presentation-information&#8221; and may be separated from the Content-Type header information?]]</p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#fragments" id="fragments">Fragment Identifier Syntax</a></h1>
+<p id="rfc.section.6.p.1">As archives usually store objects in hierarchical structures similar to filesystems, archives can serve as virtual filesystems. Respondents have noted that the objects stored in an archive can be addressed by a fragment syntax that resembles a filesystem path. At the same time, archives can store objects in different ways (along with different types of metadata), suggesting that a common baseline with flexible extension points is more appropriate than a fixed universal syntax. [[TODO: This will be explored in future drafts.  Note the similarities with this and the file: URI&#8230;]]</p>
+<p id="rfc.section.6.p.2">[[TODO: consider how to provide a fragment for content in the archive. NB: most archives do NOT provide Content-Type/media type information! So /foo.html being an HTML file is just an <em>assumption</em>, and possibly a very wrong one at that. There is no IETF registry for file extensions.]]</p>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#piped-composite-type-suffix-syntax" id="piped-composite-type-suffix-syntax">Piped-Composite Type Suffix Syntax</a></h1>
+<p id="rfc.section.7.p.1">[[TODO: discuss tar piped through bzip2, gzip, etc. as a distinct file format, rather than an application of the Content-Encoding: header. Suggest common suffix like archive/tar|bzip2, where | is some useful character but not + since + is for structured syntaxes.]]</p>
+<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#security" id="security">Security Considerations</a></h1>
+<p id="rfc.section.8.p.1">Archives can store files, file metadata, and even entire filesystems; thus, security issues loom large because archives can contain just about anything. These concerns are magnified by the arbitrary transport of such data across the Internet. [[TODO: complete.]]</p>
+<h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
 <table>
   <tbody>
     <tr>
@@ -604,9 +580,9 @@
     </tr>
     <tr>
       <td class="reference">
-        <b id="RFC6868">[RFC6868]</b>
+        <b id="RFC6838">[RFC6838]</b>
       </td>
-      <td class="top"><a>Daboo, C.</a>, "<a href="http://tools.ietf.org/html/rfc6868">Parameter Value Encoding in iCalendar and vCard</a>", RFC 6868, February 2013.</td>
+      <td class="top"><a>Freed, N.</a>, <a>Klensin, J.</a> and <a>T. Hansen</a>, "<a href="http://tools.ietf.org/html/rfc6838">Media Type Specifications and Registration Procedures</a>", BCP 13, RFC 6838, January 2013.</td>
     </tr>
   </tbody>
 </table>

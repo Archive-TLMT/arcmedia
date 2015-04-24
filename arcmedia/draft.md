@@ -1,5 +1,5 @@
 ---
-title: The Archive Primary Media Type for File Archives
+title: The Archive Top-Level Media Type for File Archives
 abbrev: arcmedia
 docname: draft-arcmedia-type-01
 date: 2015
@@ -39,14 +39,14 @@ author:
 normative:
   RFC2045:
   RFC2119:
-  RFC6868:
+  RFC6838:
 
 informative:
 
 
 --- abstract
 
-This document defines a new primary content-type to be known as
+This document defines a new top-level content-type to be known as
 "archive", which defines a fundamental type of content with unique
 presentational, hardware, and processing aspects.
 
@@ -55,22 +55,13 @@ presentational, hardware, and processing aspects.
 # Introduction
 
 The purpose of this memo is to propose an update to {{RFC2045}} to
-include a new primary content-type to be known as "archive".
-{{RFC2045}} describes mechanisms for specifying and describing the
+include a new top-level content-type to be known as "archive".
+{{RFC6838}} describes mechanisms for specifying and describing the
 format of Internet Message Bodies via content-type/subtype pairs.
 "archive" defines a fundamental type of content with unique
 presentational, hardware, and processing aspects.  Various subtypes
-of this primary type are immediately anticipated, and will be covered
+of this top-level type are immediately anticipated, and will be covered
 under separate documents.
-
-## Overview
-
-This document will outline what an archive is, show examples of
-archives, and discuss the benefits of grouping archives together.
-
-This document is a discussion document for an agreed definition,
-intended eventually to form a standard accepted extension to
-{{RFC2045}}.
 
 
 ## Notational Conventions
@@ -82,9 +73,9 @@ document are to be interpreted as described in {{RFC2119}}.
 
 # Definition of an archive  {#definition}
 
-An archive primary media type identifies data that represents one or
-more files \[cite\] along with metadata.  Archives are used to collect
-multiple data files together into a single file for easier
+An archive top-level media type identifies data that represents one or
+more objects along with metadata.  Archives are used to collect
+multiple data objects together into a single object for easier
 portability and storage. Archive formats can provide many optional
 services, including:
 
@@ -104,112 +95,45 @@ services, including:
 
 8. block storage
 
-Formats and techniques that perform one or more of these services
+Formats and techniques that support one or more of these services
 already exist under separate registrations. For example, the Content-
+{::comment}
+The fact that they already exists invites a concern that this might
+create some confusion.  The draft probably should be proactive and
+address this possibility. -- Dave Crocker
+{:/comment}
 Encoding header can be used to compress Internet message content. The
-distinguishing feature of the archive primary type is that these
+distinguishing feature of the archive top-level type is that these
 services are integrated into the format itself, along with the
-inclusion of file-specific metadata. Virtually all formats
-contemplated under this primary type are designed to concatenate
-multiple files into a single data stream, along with filenames and
+inclusion of object-specific metadata. Virtually all formats
+contemplated under this top-level type are designed to concatenate
+multiple objects into a single data stream, along with names and
 other metadata. When an Internet-facing application handles content
 labeled with this type, it SHOULD provide handling consistent with
 the archive as a discrete data item. For example, an Internet mail
 user agent would display an archive-labeled type with an archive
-icon, possibly with a preview of the files contained therein (as
-opposed to automatically traversing its contents, as it would for
-multipart-labeled content).
-
-Common operations include creating an archive, identifying files in
-an archive, adding to an archive, backing up to an archive,
-extracting an archive, restoring from an archive, deleting from an
-archive, mounting and unmounting an archive, \[\[TODO: executing an
-archive?\]\], and installing and uninstalling an archive.
-
-* Creating: taking files from a filesystem and representing those
-     files in an archive.
-
-* Identifying files: parsing an archive's format, extracting
-     information about files represented in the archive.
-
-* Adding: parsing an archive's format, adding files or non-file data
-     to the archive. In virtually all cases, at least some part of
-     the archive's content will be modified (though perhaps only at
-     the end). Unlike, for instance, text media types, concatenating
-     two separate archive contents *never* yields a valid composite
-     archive.
-
-* Backing up: taking some or all of a filesystem and representing the
-     filesystem in an archive, with the express intention of
-     recording the files as they exist in a source filesystem at the
-     time of backing up. For example, the compression, encryption,
-     and access control list (permissions) properties of the files
-     would be preserved.
-
-* Extracting: parsing an archive's format, copying file data (or file
-     metadata) out of the archive into one or more files on a
-     destination filesystem. This operation implies that at least
-     some file metadata will be preserved, while other file metadata
-     may be adjusted or added to adapt to the local environment.
-
-* Restoring: parsing an archive's format, copying file data out of
-     the archive into the destination filesystem, with the express
-     intention of recreating the files as they existed in a source
-     filesystem at the time of backing up. For example, the
-     compression, encryption, and access control list (permissions)
-     properties of the files would be preserved.
-
-* Deleting: parsing an archive's format, removing file data (or
-     metadata) from the archive, requiring changes to the archive's
-     contents. Some archive formats permit orphan data in the archive
-     content; other formats require re-serializing some or all of the
-     archive.
-
-* Mounting and unmounting: Mapping an archive's semantics directly to
-     a filesystem, so that the files represented in the archive can
-     be accessed using the filesystem's namespace with typical
-     filesystem APIs. Rather than being backed by a physical block
-     storage device, that part of the filesystem is backed by the
-     archive.
-
-* Executing \[\[NB: this may be controversial; it is worth
-     discussing\]\]: Identifying executable semantics of an archive,
-     and causing code to execute.
-
-* Installing and uninstalling \[\[NB: this may be controversial; it is
-     worth discussing\]\]: Treating the archive as a software package,
-     extracting certain contents in the archive and executing other
-     contents in the archive, according to some software packaging
-     protocol.
-
-
-# Consultation Mechanisms  {#consultation}
-
-Before proposing a subtype for the archive/* primary type, it is
-suggested that the subtype author examine the definition (above) of
-what an archive/* is and the listing (below) of what an archive/* is
-not.  Additional consultations with the authors of the existing
-archive/* subtypes is also suggested.
+icon, possibly with a preview of the objects contained therein (as
+opposed to automatically traversing its contents).
 
 
 # Encoding and Transport  {#encoding}
 
-Unrecognized subtypes of archive SHOULD at a minimum be treated as
+Unrecognized subtypes of archive SHOULD be treated as
 "archive/file".  Like "application/octet-stream", the purpose of the
 "archive/file" is to provide default handling; it does not represent
 a particular archive format. Implementations SHOULD pass subtypes of
 archive that they do not specifically recognize to a robust
-general-purpose archive viewing application, if such an application
+general-purpose archive processing application, if such an application
 is available.
 
-If default archive (archive/file) handling is not supported, it is
-appropriate to treat the archive like "application/octet-stream".
+If default archive (archive/file) handling is not supported, the
+archive MAY be treated as if it were "application/octet-stream".
 
-Unless noted in the subtype registration, subtypes of archive SHALL
+Unless noted in the subtype registration, subtypes of archive MUST
 be assumed to contain binary data, implying a content encoding of
 base64 for email and binary transfer for ftp and http.
 
-The formal syntax for the subtypes of the model primary type SHOULD
+The formal syntax for the subtypes of the archive top-level type SHOULD
 look like this:
 
 > Type name:
@@ -279,14 +203,12 @@ values used as part of the subtypes.
 
 # Common Required and Optional Parameters  {#parameters}
 
-Unlike the text primary media type (for instance), virtually all
-archive formats have been designed with almost all of the information
-required for interpretation contained within the format. Therefore,
-parameters are NOT RECOMMENDED; registrants are not expected to
-register additional parameters.
+Archive formats usually include a range of parameters (meta-data)
+within the format.  Consequently, sub-types of archive SHOULD NOT
+specify additional parameters that are external to the format.
 
 Regrettably, not all archive formats are as "universal" or "complete"
-as one might assume at first glance. This is because some archive
+as one might assume. This is because some archive
 formats are very old or are based on older formats where backwards-
 compatibility was a design goal; thus they were not designed with
 transport across the Internet in mind. The ZIP file is an example:
@@ -310,7 +232,7 @@ text/*. Endian-ness? Time/Y2K representation issues? Anything else?\]\]
 # Split Archives  {#splitarchives}
 
 Several archive formats (notably RAR and ZIP) support split archives.
-A "split archive" is an archive that is stored in multiple files
+A "split archive" is stored in multiple files
 (when stored as multiple files), or more generally, across multiple
 storage media.
 
@@ -334,13 +256,26 @@ with 02, 03, etc., when the Content-Disposition: ; filename=""
 parameter is "presentation-information" and may be separated from the
 Content-Type header information?\]\]
 
+{::comment}
+Are "split archives" really enough of a thing to warrant mention here, as
+opposed to just handling it in the individual registrations for the types that
+have the capability? If they are then this section will actually have to
+provide clear guidelines on how split arvhives must be labelled. And you might
+want to look at message/partial for one approach to that. (In particular, a
+file name is definintely not an acceptable means of tying parts of a particular
+instance together. You need a unique identifier of some sort, and it needs to
+be part of the content-type, not the content-disposition.)
+  -- Ned Freed
+{:/comment}
+
 
 # Fragment Identifier Syntax  {#fragments}
 
-Because all archives represent files, archives can serve as virtual
-filesystems. Respondents have noted that an archive's files can be
+As archives usually store objects in hierarchical structures similar to
+filesystems, archives can serve as virtual
+filesystems. Respondents have noted that the objects stored in an archive can be
 addressed by a fragment syntax that resembles a filesystem path. At
-the same time, archives may record files in different ways (along
+the same time, archives can store objects in different ways (along
 with different types of metadata), suggesting that a common baseline
 with flexible extension points is more appropriate than a fixed
 universal syntax. \[\[TODO: This will be explored in future drafts.
@@ -363,7 +298,7 @@ useful character but not \+ since \+ is for structured syntaxes.\]\]
 
 # Security Considerations  {#security}
 
-Archives represent files, file metadata, and filesystems; thus,
+Archives can store files, file metadata, and even entire filesystems; thus,
 security issues loom large because archives can contain just about
 anything. These concerns are magnified by the arbitrary transport of
 such data across the Internet. \[\[TODO: complete.\]\]
