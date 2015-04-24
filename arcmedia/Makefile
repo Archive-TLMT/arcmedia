@@ -1,44 +1,18 @@
-# Copied from https://github.com/mnot/I-D/
 
-id_base = ..
-xml2rfc ?= xml2rfc
-kramdown-rfc2629 ?= kramdown-rfc2629
-idnits ?= idnits
-
-#title = kerwin-$(shell basename "${CURDIR}")
+#title = ietf-appsawg-$(shell basename "$(CURDIR)")
 title = arcmedia-type
-latest = $(shell (ls draft-${title}-*.xml || echo "draft-${title}-00.xml") | sort | tail -1)
-version = $(shell basename ${latest} .xml | awk -F- '{print $$NF}')
+latest = $(shell (ls draft-$(title)-*.html || echo "draft-$(title)-00.xml") | sort | tail -1)
+version = $(shell basename $(latest) .html | awk -F- '{print $$NF}')
 
-target = draft-$(title)-$(version)
-prev = draft-$(title)-$(shell printf "%.2d" `echo ${version}-1 | bc`)
-next = draft-$(title)-$(shell printf "%.2d" `echo ${version}+1 | bc`)
+master = $(shell echo "$(CURDIR)" | sed -e s/.gh-pages//)
 
-.PHONY: latest clean next diff idnits update
+.PHONY: all copy
 
-latest: $(target).html $(target).txt
+all: copy index.html
 
-clean:
-	rm -f $(target).html $(target).txt
+index.html: $(latest)
+	sed -e s/-$(version)/-latest/ $(latest) > index.html
 
-next: 
-	cp $(target).xml $(next).xml
-	sed -i -e"s/$(target)/$(next)/" draft.md
+copy:
+	cp "$(master)/draft-$(title)-"* "$(CURDIR)/"
 
-diff: 
-	rfcdiff $(prev).txt $(target).txt
-
-idnits: $(target).txt
-	$(idnits) $<
-
-%.xml: draft.md
-	$(kramdown-rfc2629) $< > $@
-	
-%.html: %.xml
-	$(xml2rfc) --html $< $@
-
-%.txt: %.xml
-	$(xml2rfc) $< $@
-
-update:
-	cp $(id_base)/Tools/skel/Makefile .
