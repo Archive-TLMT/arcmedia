@@ -10,7 +10,7 @@ Expires: October 26, 2015
 
 
            The Archive Top-Level Media Type for File Archives
-                         draft-arcmedia-type-01
+                 draft-seantek-kerwin-arcmedia-type-01
 
 Abstract
 
