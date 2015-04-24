@@ -14,7 +14,7 @@
 <?rfc comments="yes"?>
 <?rfc inline="yes"?>
 
-<rfc ipr="trust200902" docName="draft-arcmedia-type-01" category="info">
+<rfc ipr="trust200902" docName="draft-seantek-kerwin-arcmedia-type-01" category="info">
 
   <front>
     <title abbrev="arcmedia">The Archive Top-Level Media Type for File Archives</title>
