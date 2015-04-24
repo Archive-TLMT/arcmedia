@@ -6,7 +6,7 @@ kramdown-rfc2629 ?= kramdown-rfc2629
 idnits ?= idnits
 
 #title = kerwin-$(shell basename "${CURDIR}")
-title = arcmedia-type
+title = seantek-kerwin-arcmedia-type
 latest = $(shell (ls draft-${title}-*.xml || echo "draft-${title}-00.xml") | sort | tail -1)
 version = $(shell basename ${latest} .xml | awk -F- '{print $$NF}')
 
