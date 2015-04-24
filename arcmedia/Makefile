@@ -1,6 +1,5 @@
 
-#title = ietf-appsawg-$(shell basename "$(CURDIR)")
-title = arcmedia-type
+title = seantek-kerwin-arcmedia-type
 latest = $(shell (ls draft-$(title)-*.html || echo "draft-$(title)-00.xml") | sort | tail -1)
 version = $(shell basename $(latest) .html | awk -F- '{print $$NF}')
 
