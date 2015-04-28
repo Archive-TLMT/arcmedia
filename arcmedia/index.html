@@ -383,7 +383,9 @@
 <link href="#rfc.section.6" rel="Chapter" title="6 Fragment Identifier Syntax"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Piped-Composite Type Suffix Syntax"/>
 <link href="#rfc.section.8" rel="Chapter" title="8 Security Considerations"/>
-<link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
+<link href="#rfc.references" rel="Chapter" title="9 References"/>
+<link href="#rfc.references.1" rel="Chapter" title="9.1 Normative References"/>
+<link href="#rfc.references.2" rel="Chapter" title="9.2 Informative References"/>
 <link href="#rfc.appendix.A" rel="Chapter" title="A Expected Subtypes"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
@@ -393,7 +395,7 @@
 
   <meta name="dct.creator" content="Leonard, S. and M. Kerwin" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-seantek-kerwin-arcmedia-type-latest" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-4-24" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-4-28" />
   <meta name="dct.abstract" content="This document defines a new top-level content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects." />
   <meta name="description" content="This document defines a new top-level content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects." />
 
@@ -417,12 +419,12 @@
   <td class="right">M. Kerwin</td>
 </tr>
 <tr>
-  <td class="left">Expires: October 26, 2015</td>
+  <td class="left">Expires: October 30, 2015</td>
   <td class="right"></td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">April 24, 2015</td>
+  <td class="right">April 28, 2015</td>
 </tr>
 
     	
@@ -442,7 +444,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on October 26, 2015.</p>
+<p>This Internet-Draft will expire on October 30, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -463,7 +465,9 @@
 <li>6.   <a href="#rfc.section.6">Fragment Identifier Syntax</a></li>
 <li>7.   <a href="#rfc.section.7">Piped-Composite Type Suffix Syntax</a></li>
 <li>8.   <a href="#rfc.section.8">Security Considerations</a></li>
-<li>9.   <a href="#rfc.references">Normative References</a></li>
+<li>9.   <a href="#rfc.references">References</a></li>
+<li>9.1.   <a href="#rfc.references.1">Normative References</a></li>
+<li>9.2.   <a href="#rfc.references.2">Informative References</a></li>
 <li>Appendix A.   <a href="#rfc.appendix.A">Expected Subtypes</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
@@ -549,7 +553,7 @@
 <p id="rfc.section.3.p.6">The optional parameters consist of starting conditions and variable values used as part of the subtypes.</p>
 <h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#parameters" id="parameters">Common Required and Optional Parameters</a></h1>
 <p id="rfc.section.4.p.1">Archive formats usually include a range of parameters (meta-data) within the format.  Consequently, sub-types of archive SHOULD NOT specify additional parameters that are external to the format.</p>
-<p id="rfc.section.4.p.2">Regrettably, not all archive formats are as &#8220;universal&#8221; or &#8220;complete&#8221; as one might assume. This is because some archive formats are very old or are based on older formats where backwards- compatibility was a design goal; thus they were not designed with transport across the Internet in mind. The ZIP file is an example: although the modern ZIP supports Unicode [CITE], the default encoding of ZIP filenames has always been Code Page 437. Since &#8220;archive&#8221; contents are literally archives of computing history, sometimes communicating the archive as-is, rather than updating the archive to a more universal format, is necessary.</p>
+<p id="rfc.section.4.p.2">Regrettably, not all archive formats are as &#8220;universal&#8221; or &#8220;complete&#8221; as one might assume. This is because some archive formats are very old or are based on older formats where backwards- compatibility was a design goal; thus they were not designed with transport across the Internet in mind. The ZIP file is an example: although the modern ZIP supports Unicode <a href="#ISO10646">[ISO10646]</a>, the default encoding of ZIP filenames has always been Code Page 437 <a href="#CP437">[CP437]</a>. Since &#8220;archive&#8221; contents are literally archives of computing history, sometimes communicating the archive as-is, rather than updating the archive to a more universal format, is necessary.</p>
 <p id="rfc.section.4.p.3">Implementations that are archive-type aware MUST support the following parameters for maximum compatibility. At the same time, new archives SHOULD NOT rely on these parameters for disambiguation; new archives SHOULD be created in such a way that &#8220;universal&#8221; interoperability is achieved with the archive&#8217;s self-contained information. [[TODO: code page&#8211;it&#8217;s like charset but only applies to certain strings in the archive, when the archive format is ambiguous; do NOT attempt to apply this parameter as one would apply charset to text/*. Endian-ness? Time/Y2K representation issues? Anything else?]]</p>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#splitarchives" id="splitarchives">Split Archives</a></h1>
 <p id="rfc.section.5.p.1">Several archive formats (notably RAR and ZIP) support split archives.  A &#8220;split archive&#8221; is stored in multiple files (when stored as multiple files), or more generally, across multiple storage media.</p>
@@ -563,7 +567,8 @@
 <p id="rfc.section.7.p.1">[[TODO: discuss tar piped through bzip2, gzip, etc. as a distinct file format, rather than an application of the Content-Encoding: header. Suggest common suffix like archive/tar|bzip2, where | is some useful character but not + since + is for structured syntaxes.]]</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#security" id="security">Security Considerations</a></h1>
 <p id="rfc.section.8.p.1">Archives can store files, file metadata, and even entire filesystems; thus, security issues loom large because archives can contain just about anything. These concerns are magnified by the arbitrary transport of such data across the Internet. [[TODO: complete.]]</p>
-<h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
+<h1 id="rfc.references"><a href="#rfc.references">9.</a> References</h1>
+<h1 id="rfc.references.1"><a href="#rfc.references.1">9.1.</a> Normative References</h1>
 <table>
   <tbody>
     <tr>
@@ -583,6 +588,23 @@
         <b id="RFC6838">[RFC6838]</b>
       </td>
       <td class="top"><a>Freed, N.</a>, <a>Klensin, J.</a> and <a>T. Hansen</a>, "<a href="http://tools.ietf.org/html/rfc6838">Media Type Specifications and Registration Procedures</a>", BCP 13, RFC 6838, January 2013.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.references.2"><a href="#rfc.references.2">9.2.</a> Informative References</h1>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="CP437">[CP437]</b>
+      </td>
+      <td class="top"><a>Microsoft Developer Network</a>, "<a href="https://msdn.microsoft.com/en-us/library/cc195060.aspx">Code Page 437 MS-DOS Latin US</a>", April 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="ISO10646">[ISO10646]</b>
+      </td>
+      <td class="top"><a>International Organization for Standardization</a>, "<a>Information Technology - Universal Multiple-Octet Coded Character Set (UCS)</a>", ISO/IEC 10646:2003, December 2003.</td>
     </tr>
   </tbody>
 </table>
