@@ -312,14 +312,14 @@ be part of the content-type, not the content-disposition.)
 # Fragment Identifier Syntax  {#fragments}
 
 As archives usually store objects in hierarchical structures similar to
-filesystems, archives can serve as virtual
-filesystems. Respondents have noted that the objects stored in an archive can be
-addressed by a fragment syntax that resembles a filesystem path. At
-the same time, archives can store objects in different ways (along
-with different types of metadata), suggesting that a common baseline
-with flexible extension points is more appropriate than a fixed
-universal syntax. \[\[TODO: This will be explored in future drafts.
-Note the similarities with this and the file: URI...\]\]
+filesystems, archives can serve as virtual filesystems.  Respondents
+have noted that the objects stored in an archive can be addressed by a
+fragment syntax that resembles a filesystem path.  At the same time,
+archives can store objects in different ways (along with different
+types of metadata), suggesting that a common baseline with flexible
+extension points is more appropriate than a fixed universal syntax.
+\[\[TODO: This will be explored in future drafts.  Note the
+similarities with this and the file: URI...\]\]
 
 \[\[TODO: consider how to provide a fragment for content in the
 archive. NB: most archives do NOT provide Content-Type/media type
