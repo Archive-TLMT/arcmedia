@@ -272,19 +272,19 @@ archive format itself.
 # Split Archives  {#splitarchives}
 
 Several archive formats (notably RAR and ZIP) support split archives.
-A "split archive" is stored in multiple files
-(when stored as multiple files), or more generally, across multiple
-storage media.
+A "split archive" can be stored in multiple files, or more generally,
+across multiple storage media.
 
-The ZIP format, for example, actually has two types of splits: "split
-archive" and "spanned archive". A "split archive" is a standard ZIP
-archive split over multiple files with the file extensions .z01,
-.z02, etc.; the .zip file is the last file. A "spanned archive" is
-the original format designed for use with swapping floppy disks. All
-archive files have the same filename; the format uses volume labels
-(presumably on floppy disks) to store disk numbers. Neither sub-
-format is merely a naive division of the octet stream: each ZIP file
-is parseable in its own right, and contains its own offset values.
+For example, the ZIP format supports two types of splits: "split
+archive" and "spanned archive".  A "split archive" is a standard ZIP
+archive split over multiple files using file extensions .z01, .z02,
+etc.; the final file in the sequence uses the .zip file extension.
+The "spanned archive" was designed for use on floppy disks with
+restrictive space limitations;  all archive files have the same
+filename, and volume labels (presumably on floppy disks) are used to
+store sequence information.  Neither sub-format is merely a naive
+division of the octet stream: each ZIP file is parseable in its own
+right, and contains its own offset values.
 
 The TAR format (or family of formats, including cpio and ustar) was
 originally designed for streaming to and from tape devices, so
