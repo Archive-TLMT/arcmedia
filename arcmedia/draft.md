@@ -136,20 +136,19 @@ extracting its contents.
 
 # Encoding and Transport  {#encoding}
 
-Unrecognized subtypes of archive SHOULD be treated as
-"archive/file".  Like "application/octet-stream", the purpose of the
-"archive/file" is to provide default handling; it does not represent
-a particular archive format. Implementations SHOULD pass subtypes of
-archive that they do not specifically recognize to a robust
-general-purpose archive processing application, if such an application
-is available.
+Unrecognized subtypes of archive SHOULD be treated as "archive/file".
+Like "application/octet-stream", the purpose of the "archive/file" type
+is to provide default handling;  it does not represent a particular
+archive format.  Implementations SHOULD defer handling of unrecognized
+subtypes of archive to a robust general-purpose archive processing
+application, if such an application is available.
 
-If default archive (archive/file) handling is not supported, the
-archive MAY be treated as if it were "application/octet-stream".
+If default archive handling is not supported, the archive MAY be
+treated as if it were "application/octet-stream".
 
 Unless noted in the subtype registration, subtypes of archive MUST
-be assumed to contain binary data, implying a content encoding of
-base64 for email and binary transfer for ftp and http.
+be assumed to contain binary data, implying the use of base64 content
+encoding for email and binary transfer for ftp and http.
 
 The formal syntax for the subtypes of the archive top-level type SHOULD
 look like this:
