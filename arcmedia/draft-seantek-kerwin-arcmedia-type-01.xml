@@ -50,8 +50,8 @@
     <abstract>
 
 
-<t>This document defines a new top-level content-type to be known as
-“archive”, which defines a fundamental type of content with unique
+<t>This document defines a new top-level media type to be known as
+“archive”, which defines a fundamental type of media with unique
 presentational, hardware, and processing aspects.</t>
 
 
@@ -67,10 +67,10 @@ presentational, hardware, and processing aspects.</t>
 <section anchor="introduction" title="Introduction">
 
 <t>The purpose of this memo is to propose an update to <xref target="RFC2045"/> to
-include a new top-level content-type to be known as “archive”.
+include a new top-level media type to be known as “archive”.
 <xref target="RFC6838"/> describes mechanisms for specifying and describing the
-format of Internet Message Bodies via content-type/subtype pairs.
-“archive” defines a fundamental type of content with unique
+format of Internet Message Bodies via media type/subtype pairs.
+“archive” defines a fundamental type of media with unique
 presentational, hardware, and processing aspects.  Various subtypes
 of this top-level type are immediately anticipated, and will be covered
 under separate documents.</t>
@@ -98,7 +98,7 @@ services, including:</t>
   <t>backup</t>
   <t>filesystem imaging</t>
   <t>software packaging and distribution</t>
-  <t>volume-splitting (archive split into multiple contents)</t>
+  <t>volume-splitting (archive split into multiple objects)</t>
   <t>block storage</t>
 </list></t>
 

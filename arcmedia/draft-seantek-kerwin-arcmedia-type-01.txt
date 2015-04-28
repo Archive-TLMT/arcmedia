@@ -14,8 +14,8 @@ Expires: October 30, 2015
 
 Abstract
 
-   This document defines a new top-level content-type to be known as
-   "archive", which defines a fundamental type of content with unique
+   This document defines a new top-level media type to be known as
+   "archive", which defines a fundamental type of media with unique
    presentational, hardware, and processing aspects.
 
 Status of This Memo
@@ -78,10 +78,10 @@ Table of Contents
 1.  Introduction
 
    The purpose of this memo is to propose an update to [RFC2045] to
-   include a new top-level content-type to be known as "archive".
+   include a new top-level media type to be known as "archive".
    [RFC6838] describes mechanisms for specifying and describing the
-   format of Internet Message Bodies via content-type/subtype pairs.
-   "archive" defines a fundamental type of content with unique
+   format of Internet Message Bodies via media type/subtype pairs.
+   "archive" defines a fundamental type of media with unique
    presentational, hardware, and processing aspects.  Various subtypes
    of this top-level type are immediately anticipated, and will be
    covered under separate documents.
@@ -120,7 +120,7 @@ Internet-Draft                  arcmedia                      April 2015
 
    6.  software packaging and distribution
 
-   7.  volume-splitting (archive split into multiple contents)
+   7.  volume-splitting (archive split into multiple objects)
 
    8.  block storage
 
