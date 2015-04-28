@@ -208,8 +208,8 @@ as one might assume. This is because some archive
 formats are very old or are based on older formats where backwards-
 compatibility was a design goal; thus they were not designed with
 transport across the Internet in mind. The ZIP file is an example:
-although the modern ZIP supports Unicode [CITE], the default encoding
-of ZIP filenames has always been Code Page 437. Since “archive”
+although the modern ZIP supports Unicode <xref target="ISO10646"/>, the default encoding
+of ZIP filenames has always been Code Page 437 <xref target="CP437"/>. Since “archive”
 contents are literally archives of computing history, sometimes
 communicating the archive as-is, rather than updating the archive to
 a more universal format, is necessary.</t>
@@ -416,6 +416,30 @@ such data across the Internet. [[TODO: complete.]]</t>
 
     </references>
 
+    <references title='Informative References'>
+
+<reference anchor="ISO10646" >
+  <front>
+    <title>Information Technology - Universal Multiple-Octet Coded Character Set (UCS)</title>
+    <author >
+      <organization>International Organization for Standardization</organization>
+    </author>
+    <date year="2003" month="December"/>
+  </front>
+  <seriesInfo name="ISO/IEC" value="10646:2003"/>
+</reference>
+<reference anchor="CP437" target="https://msdn.microsoft.com/en-us/library/cc195060.aspx">
+  <front>
+    <title>Code Page 437 MS-DOS Latin US</title>
+    <author >
+      <organization>Microsoft Developer Network</organization>
+    </author>
+    <date year="2015" month="April" day="20"/>
+  </front>
+</reference>
+
+
+    </references>
 
 
 <section anchor="subtypes" title="Expected Subtypes">

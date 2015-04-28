@@ -42,7 +42,19 @@ normative:
   RFC6838:
 
 informative:
-
+  ISO10646:
+    title: Information Technology - Universal Multiple-Octet Coded Character Set (UCS)
+    author:
+    - organization: International Organization for Standardization
+    date: 2003-12
+    seriesinfo:
+      ISO/IEC: 10646:2003
+  CP437:
+    title: Code Page 437 MS-DOS Latin US
+    author:
+    - organization: Microsoft Developer Network
+    date: 2015-04-20
+    target: https://msdn.microsoft.com/en-us/library/cc195060.aspx
 
 --- abstract
 
@@ -212,8 +224,8 @@ as one might assume. This is because some archive
 formats are very old or are based on older formats where backwards-
 compatibility was a design goal; thus they were not designed with
 transport across the Internet in mind. The ZIP file is an example:
-although the modern ZIP supports Unicode \[CITE\], the default encoding
-of ZIP filenames has always been Code Page 437. Since "archive"
+although the modern ZIP supports Unicode {{ISO10646}}, the default encoding
+of ZIP filenames has always been Code Page 437 {{CP437}}. Since "archive"
 contents are literally archives of computing history, sometimes
 communicating the archive as-is, rather than updating the archive to
 a more universal format, is necessary.
