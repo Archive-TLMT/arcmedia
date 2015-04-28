@@ -221,7 +221,7 @@ values used as part of the subtypes.
 # Common Required and Optional Parameters  {#parameters}
 
 Archive formats usually include a range of parameters (meta-data)
-within the format.  Consequently, sub-types of archive SHOULD NOT
+within the format.  Consequently, subtypes of archive SHOULD NOT
 specify additional parameters that are external to the format.
 
 Regrettably, not all archive formats are as "universal" or "complete"
