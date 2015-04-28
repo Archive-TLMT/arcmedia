@@ -155,33 +155,33 @@ look like this:
 
 > Type name:
 > : archive
-> 
+>
 > Subtype name:
 > : xxxxxxxx
-> 
+>
 > Required parameters:
 > : none
-> 
+>
 > Optional parameters:
 > : TBD
-> 
+>
 > Encoding considerations:
 > : base64 encoding is recommended when transmitting archive/* documents
 >    through MIME electronic mail.
-> 
+>
 > Security considerations:
 > : see {{security}} below
-> 
+>
 > Published specification:
 > : TBD
-> 
+>
 > Applications that use this media type:
 > : TBD
-> 
+>
 > Fragment identifier considerations:
 > : The considerations of this document, plus any extra syntaxes
 >    not inconsistent with this document.
-> 
+>
 > Additional information:
 > : Deprecated alias names for this type:
 >    : (Include non-archive alias names, such as those in application.)
@@ -194,23 +194,23 @@ look like this:
 >
 > Person and email address to contact for further information:
 > : TBD
-> 
+>
 > Intended usage:
 > : TBD (COMMON will be the most common)
-> 
+>
 > Restrictions on usage:
 > : TBD
-> 
+>
 > Author:
 > : TBD
-> 
+>
 > Change controller:
 > : TBD
-> 
+>
 > Provisional registration? (standards tree only):
 > : (Yes/No)
 > {: vspace="0"}
-> 
+>
 > (Any other information that the author deems interesting may be
 > added below this line.)
 
