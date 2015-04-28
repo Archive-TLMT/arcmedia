@@ -4,9 +4,9 @@
 
 Network Working Group                                         S. Leonard
 Internet-Draft                                             Penango, Inc.
-Intended status: Informational                                 M. Kerwin
-Expires: October 30, 2015
-                                                          April 28, 2015
+Updates: [2045, 6838] (if approved)                            M. Kerwin
+Intended status: Informational
+Expires: October 30, 2015                                 April 28, 2015
 
 
            The Archive Top-Level Media Type for File Archives
@@ -64,20 +64,21 @@ Table of Contents
      1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   2
    2.  Definition of an archive  . . . . . . . . . . . . . . . . . .   2
    3.  Encoding and Transport  . . . . . . . . . . . . . . . . . . .   3
-   4.  Common Required and Optional Parameters . . . . . . . . . . .   5
-   5.  Split Archives  . . . . . . . . . . . . . . . . . . . . . . .   6
-   6.  Fragment Identifier Syntax  . . . . . . . . . . . . . . . . .   6
-   7.  Piped-Composite Type Suffix Syntax  . . . . . . . . . . . . .   7
-   8.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
-   9.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   7
-     9.1.  Normative References  . . . . . . . . . . . . . . . . . .   7
-     9.2.  Informative References  . . . . . . . . . . . . . . . . .   7
-   Appendix A.  Expected Subtypes  . . . . . . . . . . . . . . . . .   7
+   4.  Registration Template . . . . . . . . . . . . . . . . . . . .   3
+   5.  Common Required and Optional Parameters . . . . . . . . . . .   5
+   6.  Split Archives  . . . . . . . . . . . . . . . . . . . . . . .   6
+   7.  Fragment Identifier Syntax  . . . . . . . . . . . . . . . . .   6
+   8.  Piped-Composite Type Suffix Syntax  . . . . . . . . . . . . .   7
+   9.  Security Considerations . . . . . . . . . . . . . . . . . . .   7
+   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .   7
+     10.1.  Normative References . . . . . . . . . . . . . . . . . .   7
+     10.2.  Informative References . . . . . . . . . . . . . . . . .   7
+   Appendix A.  Expected Subtypes  . . . . . . . . . . . . . . . . .   8
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   8
 
 1.  Introduction
 
-   The purpose of this memo is to propose an update to [RFC2045] to
+   The purpose of this memo is to update [RFC2045] and [RFC6838] to
    include a new top-level media type to be known as "archive".
    [RFC6838] describes mechanisms for specifying and describing the
    format of Internet Message Bodies via media type/subtype pairs.
@@ -94,11 +95,11 @@ Table of Contents
 
 2.  Definition of an archive
 
-   An archive top-level media type identifies data that represents one
-   or more objects along with metadata.  Archives are used to collect
-   multiple data objects together into a single object for easier
-   portability and storage.  Archive formats can provide many optional
-   services, including:
+   The archive top-level media type identifies a container of one or
+   more data objects and metadata about them.  Archives are used to
+   collect multiple data objects together into a single object for
+   easier portability and storage.  Archive formats can provide many
+   optional services, including:
 
    1.  compression
 
@@ -108,13 +109,12 @@ Table of Contents
 
 
 
-
 Leonard & Kerwin        Expires October 30, 2015                [Page 2]
 
 Internet-Draft                  arcmedia                      April 2015
 
 
-   4.  backup
+   4.  backup and restoration
 
    5.  filesystem imaging
 
@@ -126,42 +126,42 @@ Internet-Draft                  arcmedia                      April 2015
 
    Formats and techniques that support one or more of these services
    already exist under separate registrations.  For example, the
-   Content- Encoding header can be used to compress Internet message
-   content.  The distinguishing feature of the archive top-level type is
-   that these services are integrated into the format itself, along with
-   the inclusion of object-specific metadata.  Virtually all formats
-   contemplated under this top-level type are designed to concatenate
-   multiple objects into a single data stream, along with names and
-   other metadata.  When an Internet-facing application handles content
-   labeled with this type, it SHOULD provide handling consistent with
-   the archive as a discrete data item.  For example, an Internet mail
-   user agent would display an archive-labeled type with an archive
-   icon, possibly with a preview of the objects contained therein (as
-   opposed to automatically traversing its contents).
+   Content-Encoding header can be used to signal compressed Internet
+   message content.  The distinguishing feature of the archive top-level
+   type is that these services are integrated into the format itself,
+   along with the inclusion of object-specific metadata.
+
+   Formats contemplated under this top-level type are designed to
+   concatenate multiple objects into a single data stream, along with
+   names and other metadata.  When an Internet-facing application
+   handles content labeled with this type, it SHOULD treat the archive
+   as a discrete data item.  For example, an Internet mail user agent
+   might display an archive-labeled type with an archive icon, possibly
+   with a preview of the objects contained therein, as opposed to
+   automatically extracting its contents.
 
 3.  Encoding and Transport
 
    Unrecognized subtypes of archive SHOULD be treated as "archive/file".
-   Like "application/octet-stream", the purpose of the "archive/file" is
-   to provide default handling; it does not represent a particular
-   archive format.  Implementations SHOULD pass subtypes of archive that
-   they do not specifically recognize to a robust general-purpose
-   archive processing application, if such an application is available.
+   Like "application/octet-stream", the purpose of the "archive/file"
+   type is to provide default handling; it does not represent a
+   particular archive format.  Implementations SHOULD defer handling of
+   unrecognized subtypes of archive to a robust general-purpose archive
+   processing application, if such an application is available.
 
-   If default archive (archive/file) handling is not supported, the
-   archive MAY be treated as if it were "application/octet-stream".
+   If default archive handling is not supported, the archive MAY be
+   treated as if it were "application/octet-stream".
 
    Unless noted in the subtype registration, subtypes of archive MUST be
-   assumed to contain binary data, implying a content encoding of base64
-   for email and binary transfer for ftp and http.
+   assumed to contain binary data, implying the use of base64 content
+   encoding for email and binary transfer for ftp and http.
+
+4.  Registration Template
 
    The formal syntax for the subtypes of the archive top-level type
    SHOULD look like this:
 
 
-
-      Type name:
-         archive
 
 
 
@@ -169,6 +169,9 @@ Leonard & Kerwin        Expires October 30, 2015                [Page 3]
 
 Internet-Draft                  arcmedia                      April 2015
 
+
+      Type name:
+         archive
 
       Subtype name:
          xxxxxxxx
@@ -184,7 +187,7 @@ Internet-Draft                  arcmedia                      April 2015
          documents through MIME electronic mail.
 
       Security considerations:
-         see Section 8 below
+         see Section 9 below
 
       Published specification:
          TBD
@@ -215,9 +218,6 @@ Internet-Draft                  arcmedia                      April 2015
       Person and email address to contact for further information:
          TBD
 
-      Intended usage:
-         TBD (COMMON will be the most common)
-
 
 
 
@@ -225,6 +225,9 @@ Leonard & Kerwin        Expires October 30, 2015                [Page 4]
 
 Internet-Draft                  arcmedia                      April 2015
 
+
+      Intended usage:
+         TBD (COMMON will be the most common)
 
       Restrictions on usage:
          TBD
@@ -244,34 +247,31 @@ Internet-Draft                  arcmedia                      April 2015
    The optional parameters consist of starting conditions and variable
    values used as part of the subtypes.
 
-4.  Common Required and Optional Parameters
+5.  Common Required and Optional Parameters
 
-   Archive formats usually include a range of parameters (meta-data)
-   within the format.  Consequently, sub-types of archive SHOULD NOT
-   specify additional parameters that are external to the format.
+   Archive formats usually include parameteric meta-data within the
+   format.  Consequently, subtypes of archive SHOULD NOT specify the
+   same information as parameters to the type.
 
-   Regrettably, not all archive formats are as "universal" or "complete"
-   as one might assume.  This is because some archive formats are very
-   old or are based on older formats where backwards- compatibility was
-   a design goal; thus they were not designed with transport across the
-   Internet in mind.  The ZIP file is an example: although the modern
-   ZIP supports Unicode [ISO10646], the default encoding of ZIP
-   filenames has always been Code Page 437 [CP437].  Since "archive"
-   contents are literally archives of computing history, sometimes
-   communicating the archive as-is, rather than updating the archive to
-   a more universal format, is necessary.
+   Some archive formats are very old, or are designed to be backwards-
+   compatible with older formats, and as such might not have been
+   designed with transport across the Internet in mind.  For example,
+   modern versions of the ZIP file format [ZIP] include support for the
+   Universal Character Set [ISO10646], however the default encoding of
+   filenames within a ZIP archive has always been Code Page 437 [CP437].
+   Due to the historical nature of archives, and to support
+   interoperability with older implementations, sometimes it is
+   preferable to communicate the archive as-is, rather than updating it
+   to a more modern or universal format.
 
    Implementations that are archive-type aware MUST support the
    following parameters for maximum compatibility.  At the same time,
-   new archives SHOULD NOT rely on these parameters for disambiguation;
-   new archives SHOULD be created in such a way that "universal"
-   interoperability is achieved with the archive's self-contained
-   information.  [[TODO: code page-it's like charset but only applies to
-   certain strings in the archive, when the archive format is ambiguous;
-   do NOT attempt to apply this parameter as one would apply charset to
-   text/*. Endian-ness?  Time/Y2K representation issues?  Anything
-   else?]]
+   new archive types SHOULD NOT rely on these parameters for
+   disambiguation; new archive types SHOULD be designed in such a way
+   that "universal" interoperability is achieved using information
+   contained within the archive format itself.
 
+   [[TODO: write this list]]
 
 
 
@@ -282,21 +282,32 @@ Leonard & Kerwin        Expires October 30, 2015                [Page 5]
 Internet-Draft                  arcmedia                      April 2015
 
 
-5.  Split Archives
+   o  Code Page - like charset but only applies to certain strings in
+      the archive, when the archive format is ambiguous.  Do not attempt
+      to apply this parameter as one would apply charset to text/*
+
+   o  Endianness?
+
+   o  Time/Y2K representation issues?
+
+   o  Anything else?
+
+6.  Split Archives
 
    Several archive formats (notably RAR and ZIP) support split archives.
-   A "split archive" is stored in multiple files (when stored as
-   multiple files), or more generally, across multiple storage media.
+   A "split archive" can be stored in multiple files, or more generally,
+   across multiple storage media.
 
-   The ZIP format, for example, actually has two types of splits: "split
+   For example, the ZIP format supports two types of splits: "split
    archive" and "spanned archive".  A "split archive" is a standard ZIP
-   archive split over multiple files with the file extensions .z01,
-   .z02, etc.; the .zip file is the last file.  A "spanned archive" is
-   the original format designed for use with swapping floppy disks.  All
-   archive files have the same filename; the format uses volume labels
-   (presumably on floppy disks) to store disk numbers.  Neither sub-
-   format is merely a naive division of the octet stream: each ZIP file
-   is parseable in its own right, and contains its own offset values.
+   archive split over multiple files using file extensions .z01, .z02,
+   etc.; the final file in the sequence uses the .zip file extension.
+   The "spanned archive" was designed for use on floppy disks with
+   restrictive space limitations; all archive files have the same
+   filename, and volume labels (presumably on floppy disks) are used to
+   store sequence information.  Neither sub-format is merely a naive
+   division of the octet stream: each ZIP file is parseable in its own
+   right, and contains its own offset values.
 
    The TAR format (or family of formats, including cpio and ustar) was
    originally designed for streaming to and from tape devices, so
@@ -308,7 +319,7 @@ Internet-Draft                  arcmedia                      April 2015
    "presentation-information" and may be separated from the Content-Type
    header information?]]
 
-6.  Fragment Identifier Syntax
+7.  Fragment Identifier Syntax
 
    As archives usually store objects in hierarchical structures similar
    to filesystems, archives can serve as virtual filesystems.
@@ -320,17 +331,6 @@ Internet-Draft                  arcmedia                      April 2015
    universal syntax.  [[TODO: This will be explored in future drafts.
    Note the similarities with this and the file: URI...]]
 
-   [[TODO: consider how to provide a fragment for content in the
-   archive.  NB: most archives do NOT provide Content-Type/media type
-   information!  So /foo.html being an HTML file is just an
-   _assumption_, and possibly a very wrong one at that.  There is no
-   IETF registry for file extensions.]]
-
-
-
-
-
-
 
 
 Leonard & Kerwin        Expires October 30, 2015                [Page 6]
@@ -338,23 +338,29 @@ Leonard & Kerwin        Expires October 30, 2015                [Page 6]
 Internet-Draft                  arcmedia                      April 2015
 
 
-7.  Piped-Composite Type Suffix Syntax
+   [[TODO: consider how to provide a fragment for content in the
+   archive.  NB: most archives do NOT provide Content-Type/media type
+   information!  So /foo.html being an HTML file is just an
+   _assumption_, and possibly a very wrong one at that.  There is no
+   IETF registry for file extensions.]]
+
+8.  Piped-Composite Type Suffix Syntax
 
    [[TODO: discuss tar piped through bzip2, gzip, etc. as a distinct
    file format, rather than an application of the Content-Encoding:
    header.  Suggest common suffix like archive/tar|bzip2, where | is
    some useful character but not + since + is for structured syntaxes.]]
 
-8.  Security Considerations
+9.  Security Considerations
 
    Archives can store files, file metadata, and even entire filesystems;
    thus, security issues loom large because archives can contain just
    about anything.  These concerns are magnified by the arbitrary
    transport of such data across the Internet.  [[TODO: complete.]]
 
-9.  References
+10.  References
 
-9.1.  Normative References
+10.1.  Normative References
 
    [RFC2045]  Freed, N. and N. Borenstein, "Multipurpose Internet Mail
               Extensions (MIME) Part One: Format of Internet Message
@@ -367,7 +373,7 @@ Internet-Draft                  arcmedia                      April 2015
               Specifications and Registration Procedures", BCP 13, RFC
               6838, January 2013.
 
-9.2.  Informative References
+10.2.  Informative References
 
    [CP437]    Microsoft Developer Network, "Code Page 437 MS-DOS Latin
               US", April 2015, <https://msdn.microsoft.com/en-
@@ -378,12 +384,6 @@ Internet-Draft                  arcmedia                      April 2015
               "Information Technology - Universal Multiple-Octet Coded
               Character Set (UCS)", ISO/IEC 10646:2003, December 2003.
 
-Appendix A.  Expected Subtypes
-
-   The following archive formats will be explored for registration as
-   subtypes along with this effort:
-
-   Archiving Only  TAR
 
 
 
@@ -393,6 +393,17 @@ Leonard & Kerwin        Expires October 30, 2015                [Page 7]
 
 Internet-Draft                  arcmedia                      April 2015
 
+
+   [ZIP]      Lindner, P., "application/zip registration at IANA", June
+              1993, <http://www.iana.org/assignments/media-
+              types/application/zip>.
+
+Appendix A.  Expected Subtypes
+
+   The following archive formats will be explored for registration as
+   subtypes along with this effort:
+
+   Archiving Only  TAR
 
    Multipurpose (archiving, compression, encryption)  ZIP, ACE, RAR,
       7-Zip, StuffIt, FreeArc
@@ -419,17 +430,6 @@ Authors' Addresses
 
    Email: matthew@kerwin.net.au
    URI:   http://matthew.kerwin.net.au/
-
-
-
-
-
-
-
-
-
-
-
 
 
 
