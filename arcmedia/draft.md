@@ -158,6 +158,9 @@ Unless noted in the subtype registration, subtypes of archive MUST
 be assumed to contain binary data, implying the use of base64 content
 encoding for email and binary transfer for ftp and http.
 
+
+# Registration Template  {#template}
+
 The formal syntax for the subtypes of the archive top-level type SHOULD
 look like this:
 
