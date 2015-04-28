@@ -10,6 +10,10 @@ area: General
 workgroup: 
 keyword: Internet-Draft
 
+updates:
+ - 2045
+ - 6838
+
 stand_alone: yes
 pi: [toc, tocindent, sortrefs, symrefs, strict, compact, comments, inline]
 
@@ -66,7 +70,7 @@ presentational, hardware, and processing aspects.
 
 # Introduction
 
-The purpose of this memo is to propose an update to {{RFC2045}} to
+The purpose of this memo is to update {{RFC2045}} and {{RFC6838}} to
 include a new top-level media type to be known as "archive".
 {{RFC6838}} describes mechanisms for specifying and describing the
 format of Internet Message Bodies via media type/subtype pairs.
@@ -85,10 +89,10 @@ document are to be interpreted as described in {{RFC2119}}.
 
 # Definition of an archive  {#definition}
 
-An archive top-level media type identifies data that represents one or
-more objects along with metadata.  Archives are used to collect
-multiple data objects together into a single object for easier
-portability and storage. Archive formats can provide many optional
+The archive top-level media type identifies a container of one or
+more data objects and metadata about them.  Archives are used to
+collect multiple data objects together into a single object for easier
+portability and storage.  Archive formats can provide many optional
 services, including:
 
 1. compression
@@ -97,7 +101,7 @@ services, including:
 
 3. authentication
 
-4. backup
+4. backup and restoration
 
 5. filesystem imaging
 
@@ -108,24 +112,26 @@ services, including:
 8. block storage
 
 Formats and techniques that support one or more of these services
-already exist under separate registrations. For example, the Content-
+already exist under separate registrations.  For example, the
+Content-Encoding header can be used to signal compressed Internet
+message content.
 {::comment}
 The fact that they already exists invites a concern that this might
 create some confusion.  The draft probably should be proactive and
 address this possibility. -- Dave Crocker
 {:/comment}
-Encoding header can be used to compress Internet message content. The
-distinguishing feature of the archive top-level type is that these
+The distinguishing feature of the archive top-level type is that these
 services are integrated into the format itself, along with the
-inclusion of object-specific metadata. Virtually all formats
-contemplated under this top-level type are designed to concatenate
-multiple objects into a single data stream, along with names and
-other metadata. When an Internet-facing application handles content
-labeled with this type, it SHOULD provide handling consistent with
-the archive as a discrete data item. For example, an Internet mail
-user agent would display an archive-labeled type with an archive
-icon, possibly with a preview of the objects contained therein (as
-opposed to automatically traversing its contents).
+inclusion of object-specific metadata.
+
+Formats contemplated under this top-level type are designed to
+concatenate multiple objects into a single data stream, along with
+names and other metadata.  When an Internet-facing application handles
+content labeled with this type, it SHOULD treat the archive as a
+discrete data item.  For example, an Internet mail user agent might
+display an archive-labeled type with an archive icon, possibly with a
+preview of the objects contained therein, as opposed to automatically
+extracting its contents.
 
 
 # Encoding and Transport  {#encoding}
