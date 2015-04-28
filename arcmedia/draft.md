@@ -59,6 +59,14 @@ informative:
     - organization: Microsoft Developer Network
     date: 2015-04-20
     target: https://msdn.microsoft.com/en-us/library/cc195060.aspx
+  ZIP:
+    title: application/zip registration at IANA
+    author:
+    - ins: P. Lindner
+      name: Paul Lindner
+      email: lindner@mudhoney.mico.umn.edu
+    date: 1993-06-19
+    target: http://www.iana.org/assignments/media-types/application/zip
 
 --- abstract
 
@@ -220,30 +228,42 @@ values used as part of the subtypes.
 
 # Common Required and Optional Parameters  {#parameters}
 
-Archive formats usually include a range of parameters (meta-data)
-within the format.  Consequently, subtypes of archive SHOULD NOT
-specify additional parameters that are external to the format.
+Archive formats usually include parameteric meta-data within the
+format.  Consequently, subtypes of archive SHOULD NOT specify
+the same information as parameters to the type.
 
-Regrettably, not all archive formats are as "universal" or "complete"
-as one might assume. This is because some archive
-formats are very old or are based on older formats where backwards-
-compatibility was a design goal; thus they were not designed with
-transport across the Internet in mind. The ZIP file is an example:
-although the modern ZIP supports Unicode {{ISO10646}}, the default encoding
-of ZIP filenames has always been Code Page 437 {{CP437}}. Since "archive"
-contents are literally archives of computing history, sometimes
-communicating the archive as-is, rather than updating the archive to
-a more universal format, is necessary.
+Some archive formats are very old, or are designed to be
+backwards-compatible with older formats, and as such might not have
+been designed with transport across the Internet in mind.  For example,
+modern versions of the ZIP file format {{ZIP}} include support for the
+Universal Character Set {{ISO10646}}, however the default encoding of
+filenames within a ZIP archive has always been Code Page 437 {{CP437}}.
+Due to the historical nature of archives, and to support
+interoperability with older implementations, sometimes it is preferable
+to communicate the archive as-is, rather than updating it to a more
+modern or universal format.
+{::comment}
+Is this paragraph necessary? --MK
+{:/comment}
 
 Implementations that are archive-type aware MUST support the
-following parameters for maximum compatibility. At the same time, new
-archives SHOULD NOT rely on these parameters for disambiguation; new
-archives SHOULD be created in such a way that "universal"
-interoperability is achieved with the archive's self-contained
-information. \[\[TODO: code page--it's like charset but only applies to
-certain strings in the archive, when the archive format is ambiguous;
-do NOT attempt to apply this parameter as one would apply charset to
-text/*. Endian-ness? Time/Y2K representation issues? Anything else?\]\]
+following parameters for maximum compatibility.  At the same time, new
+archive types SHOULD NOT rely on these parameters for disambiguation;
+new archive types SHOULD be designed in such a way that "universal"
+interoperability is achieved using information contained within the
+archive format itself.
+
+\[\[TODO: write this list\]\]
+
+ * Code Page -- like charset but only applies to certain strings
+   in the archive, when the archive format is ambiguous.  Do not
+   attempt to apply this parameter as one would apply charset to text/*
+
+ * Endianness?
+
+ * Time/Y2K representation issues?
+
+ * Anything else?
 
 
 # Split Archives  {#splitarchives}
