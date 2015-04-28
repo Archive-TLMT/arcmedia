@@ -396,8 +396,8 @@
   <meta name="dct.creator" content="Leonard, S. and M. Kerwin" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-seantek-kerwin-arcmedia-type-01" />
   <meta name="dct.issued" scheme="ISO8601" content="2015-4-28" />
-  <meta name="dct.abstract" content="This document defines a new top-level content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects." />
-  <meta name="description" content="This document defines a new top-level content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects." />
+  <meta name="dct.abstract" content="This document defines a new top-level media type to be known as &#8220;archive&#8221;, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
+  <meta name="description" content="This document defines a new top-level media type to be known as &#8220;archive&#8221;, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
 
 </head>
 
@@ -437,7 +437,7 @@
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document defines a new top-level content-type to be known as &#8220;archive&#8221;, which defines a fundamental type of content with unique presentational, hardware, and processing aspects.</p>
+<p>This document defines a new top-level media type to be known as &#8220;archive&#8221;, which defines a fundamental type of media with unique presentational, hardware, and processing aspects.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
@@ -475,7 +475,7 @@
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
-<p id="rfc.section.1.p.1">The purpose of this memo is to propose an update to <a href="#RFC2045">[RFC2045]</a> to include a new top-level content-type to be known as &#8220;archive&#8221;.  <a href="#RFC6838">[RFC6838]</a> describes mechanisms for specifying and describing the format of Internet Message Bodies via content-type/subtype pairs.  &#8220;archive&#8221; defines a fundamental type of content with unique presentational, hardware, and processing aspects.  Various subtypes of this top-level type are immediately anticipated, and will be covered under separate documents.</p>
+<p id="rfc.section.1.p.1">The purpose of this memo is to propose an update to <a href="#RFC2045">[RFC2045]</a> to include a new top-level media type to be known as &#8220;archive&#8221;.  <a href="#RFC6838">[RFC6838]</a> describes mechanisms for specifying and describing the format of Internet Message Bodies via media type/subtype pairs.  &#8220;archive&#8221; defines a fundamental type of media with unique presentational, hardware, and processing aspects.  Various subtypes of this top-level type are immediately anticipated, and will be covered under separate documents.</p>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#notational-conventions" id="notational-conventions">Notational Conventions</a></h1>
 <p id="rfc.section.1.1.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#definition" id="definition">Definition of an archive</a></h1>
@@ -489,7 +489,7 @@
   <li>backup</li>
   <li>filesystem imaging</li>
   <li>software packaging and distribution</li>
-  <li>volume-splitting (archive split into multiple contents)</li>
+  <li>volume-splitting (archive split into multiple objects)</li>
   <li>block storage</li>
 </ol>
 <p id="rfc.section.2.p.3">Formats and techniques that support one or more of these services already exist under separate registrations. For example, the Content- Encoding header can be used to compress Internet message content. The distinguishing feature of the archive top-level type is that these services are integrated into the format itself, along with the inclusion of object-specific metadata. Virtually all formats contemplated under this top-level type are designed to concatenate multiple objects into a single data stream, along with names and other metadata. When an Internet-facing application handles content labeled with this type, it SHOULD provide handling consistent with the archive as a discrete data item. For example, an Internet mail user agent would display an archive-labeled type with an archive icon, possibly with a preview of the objects contained therein (as opposed to automatically traversing its contents).</p>
