@@ -14,7 +14,7 @@
 <?rfc comments="yes"?>
 <?rfc inline="yes"?>
 
-<rfc ipr="trust200902" docName="draft-seantek-kerwin-arcmedia-type-01" category="info">
+<rfc ipr="trust200902" docName="draft-seantek-kerwin-arcmedia-type-01" category="info" updates="[2045, 6838]">
 
   <front>
     <title abbrev="arcmedia">The Archive Top-Level Media Type for File Archives</title>
@@ -66,7 +66,7 @@ presentational, hardware, and processing aspects.</t>
 
 <section anchor="introduction" title="Introduction">
 
-<t>The purpose of this memo is to propose an update to <xref target="RFC2045"/> to
+<t>The purpose of this memo is to update <xref target="RFC2045"/> and <xref target="RFC6838"/> to
 include a new top-level media type to be known as “archive”.
 <xref target="RFC6838"/> describes mechanisms for specifying and describing the
 format of Internet Message Bodies via media type/subtype pairs.
@@ -85,17 +85,17 @@ document are to be interpreted as described in <xref target="RFC2119"/>.</t>
 </section>
 <section anchor="definition" title="Definition of an archive">
 
-<t>An archive top-level media type identifies data that represents one or
-more objects along with metadata.  Archives are used to collect
-multiple data objects together into a single object for easier
-portability and storage. Archive formats can provide many optional
+<t>The archive top-level media type identifies a container of one or
+more data objects and metadata about them.  Archives are used to
+collect multiple data objects together into a single object for easier
+portability and storage.  Archive formats can provide many optional
 services, including:</t>
 
 <t><list style="numbers">
   <t>compression</t>
   <t>encryption</t>
   <t>authentication</t>
-  <t>backup</t>
+  <t>backup and restoration</t>
   <t>filesystem imaging</t>
   <t>software packaging and distribution</t>
   <t>volume-splitting (archive split into multiple objects)</t>
@@ -103,38 +103,42 @@ services, including:</t>
 </list></t>
 
 <t>Formats and techniques that support one or more of these services
-already exist under separate registrations. For example, the Content-
+already exist under separate registrations.  For example, the
+Content-Encoding header can be used to signal compressed Internet
+message content.
 
-Encoding header can be used to compress Internet message content. The
-distinguishing feature of the archive top-level type is that these
+The distinguishing feature of the archive top-level type is that these
 services are integrated into the format itself, along with the
-inclusion of object-specific metadata. Virtually all formats
-contemplated under this top-level type are designed to concatenate
-multiple objects into a single data stream, along with names and
-other metadata. When an Internet-facing application handles content
-labeled with this type, it SHOULD provide handling consistent with
-the archive as a discrete data item. For example, an Internet mail
-user agent would display an archive-labeled type with an archive
-icon, possibly with a preview of the objects contained therein (as
-opposed to automatically traversing its contents).</t>
+inclusion of object-specific metadata.</t>
+
+<t>Formats contemplated under this top-level type are designed to
+concatenate multiple objects into a single data stream, along with
+names and other metadata.  When an Internet-facing application handles
+content labeled with this type, it SHOULD treat the archive as a
+discrete data item.  For example, an Internet mail user agent might
+display an archive-labeled type with an archive icon, possibly with a
+preview of the objects contained therein, as opposed to automatically
+extracting its contents.</t>
 
 </section>
 <section anchor="encoding" title="Encoding and Transport">
 
-<t>Unrecognized subtypes of archive SHOULD be treated as
-“archive/file”.  Like “application/octet-stream”, the purpose of the
-“archive/file” is to provide default handling; it does not represent
-a particular archive format. Implementations SHOULD pass subtypes of
-archive that they do not specifically recognize to a robust
-general-purpose archive processing application, if such an application
-is available.</t>
+<t>Unrecognized subtypes of archive SHOULD be treated as “archive/file”.
+Like “application/octet-stream”, the purpose of the “archive/file” type
+is to provide default handling;  it does not represent a particular
+archive format.  Implementations SHOULD defer handling of unrecognized
+subtypes of archive to a robust general-purpose archive processing
+application, if such an application is available.</t>
 
-<t>If default archive (archive/file) handling is not supported, the
-archive MAY be treated as if it were “application/octet-stream”.</t>
+<t>If default archive handling is not supported, the archive MAY be
+treated as if it were “application/octet-stream”.</t>
 
 <t>Unless noted in the subtype registration, subtypes of archive MUST
-be assumed to contain binary data, implying a content encoding of
-base64 for email and binary transfer for ftp and http.</t>
+be assumed to contain binary data, implying the use of base64 content
+encoding for email and binary transfer for ftp and http.</t>
+
+</section>
+<section anchor="template" title="Registration Template">
 
 <t>The formal syntax for the subtypes of the archive top-level type SHOULD
 look like this:</t>
@@ -199,48 +203,57 @@ values used as part of the subtypes.</t>
 </section>
 <section anchor="parameters" title="Common Required and Optional Parameters">
 
-<t>Archive formats usually include a range of parameters (meta-data)
-within the format.  Consequently, sub-types of archive SHOULD NOT
-specify additional parameters that are external to the format.</t>
+<t>Archive formats usually include parameteric meta-data within the
+format.  Consequently, subtypes of archive SHOULD NOT specify
+the same information as parameters to the type.</t>
 
-<t>Regrettably, not all archive formats are as “universal” or “complete”
-as one might assume. This is because some archive
-formats are very old or are based on older formats where backwards-
-compatibility was a design goal; thus they were not designed with
-transport across the Internet in mind. The ZIP file is an example:
-although the modern ZIP supports Unicode <xref target="ISO10646"/>, the default encoding
-of ZIP filenames has always been Code Page 437 <xref target="CP437"/>. Since “archive”
-contents are literally archives of computing history, sometimes
-communicating the archive as-is, rather than updating the archive to
-a more universal format, is necessary.</t>
+<t>Some archive formats are very old, or are designed to be
+backwards-compatible with older formats, and as such might not have
+been designed with transport across the Internet in mind.  For example,
+modern versions of the ZIP file format <xref target="ZIP"/> include support for the
+Universal Character Set <xref target="ISO10646"/>, however the default encoding of
+filenames within a ZIP archive has always been Code Page 437 <xref target="CP437"/>.
+Due to the historical nature of archives, and to support
+interoperability with older implementations, sometimes it is preferable
+to communicate the archive as-is, rather than updating it to a more
+modern or universal format.
+</t>
 
 <t>Implementations that are archive-type aware MUST support the
-following parameters for maximum compatibility. At the same time, new
-archives SHOULD NOT rely on these parameters for disambiguation; new
-archives SHOULD be created in such a way that “universal”
-interoperability is achieved with the archive’s self-contained
-information. [[TODO: code page–it’s like charset but only applies to
-certain strings in the archive, when the archive format is ambiguous;
-do NOT attempt to apply this parameter as one would apply charset to
-text/*. Endian-ness? Time/Y2K representation issues? Anything else?]]</t>
+following parameters for maximum compatibility.  At the same time, new
+archive types SHOULD NOT rely on these parameters for disambiguation;
+new archive types SHOULD be designed in such a way that “universal”
+interoperability is achieved using information contained within the
+archive format itself.</t>
+
+<t>[[TODO: write this list]]</t>
+
+<t><list style="symbols">
+  <t>Code Page – like charset but only applies to certain strings
+in the archive, when the archive format is ambiguous.  Do not
+attempt to apply this parameter as one would apply charset to text/*</t>
+  <t>Endianness?</t>
+  <t>Time/Y2K representation issues?</t>
+  <t>Anything else?</t>
+</list></t>
 
 </section>
 <section anchor="splitarchives" title="Split Archives">
 
 <t>Several archive formats (notably RAR and ZIP) support split archives.
-A “split archive” is stored in multiple files
-(when stored as multiple files), or more generally, across multiple
-storage media.</t>
+A “split archive” can be stored in multiple files, or more generally,
+across multiple storage media.</t>
 
-<t>The ZIP format, for example, actually has two types of splits: “split
-archive” and “spanned archive”. A “split archive” is a standard ZIP
-archive split over multiple files with the file extensions .z01,
-.z02, etc.; the .zip file is the last file. A “spanned archive” is
-the original format designed for use with swapping floppy disks. All
-archive files have the same filename; the format uses volume labels
-(presumably on floppy disks) to store disk numbers. Neither sub-
-format is merely a naive division of the octet stream: each ZIP file
-is parseable in its own right, and contains its own offset values.</t>
+<t>For example, the ZIP format supports two types of splits: “split
+archive” and “spanned archive”.  A “split archive” is a standard ZIP
+archive split over multiple files using file extensions .z01, .z02,
+etc.; the final file in the sequence uses the .zip file extension.
+The “spanned archive” was designed for use on floppy disks with
+restrictive space limitations;  all archive files have the same
+filename, and volume labels (presumably on floppy disks) are used to
+store sequence information.  Neither sub-format is merely a naive
+division of the octet stream: each ZIP file is parseable in its own
+right, and contains its own offset values.</t>
 
 <t>The TAR format (or family of formats, including cpio and ustar) was
 originally designed for streaming to and from tape devices, so
@@ -257,14 +270,14 @@ Content-Type header information?]]</t>
 <section anchor="fragments" title="Fragment Identifier Syntax">
 
 <t>As archives usually store objects in hierarchical structures similar to
-filesystems, archives can serve as virtual
-filesystems. Respondents have noted that the objects stored in an archive can be
-addressed by a fragment syntax that resembles a filesystem path. At
-the same time, archives can store objects in different ways (along
-with different types of metadata), suggesting that a common baseline
-with flexible extension points is more appropriate than a fixed
-universal syntax. [[TODO: This will be explored in future drafts.
-Note the similarities with this and the file: URI…]]</t>
+filesystems, archives can serve as virtual filesystems.  Respondents
+have noted that the objects stored in an archive can be addressed by a
+fragment syntax that resembles a filesystem path.  At the same time,
+archives can store objects in different ways (along with different
+types of metadata), suggesting that a common baseline with flexible
+extension points is more appropriate than a fixed universal syntax.
+[[TODO: This will be explored in future drafts.  Note the
+similarities with this and the file: URI…]]</t>
 
 <t>[[TODO: consider how to provide a fragment for content in the
 archive. NB: most archives do NOT provide Content-Type/media type
@@ -435,6 +448,15 @@ such data across the Internet. [[TODO: complete.]]</t>
       <organization>Microsoft Developer Network</organization>
     </author>
     <date year="2015" month="April" day="20"/>
+  </front>
+</reference>
+<reference anchor="ZIP" target="http://www.iana.org/assignments/media-types/application/zip">
+  <front>
+    <title>application/zip registration at IANA</title>
+    <author initials="P." surname="Lindner" fullname="Paul Lindner">
+      <organization></organization>
+    </author>
+    <date year="1993" month="June" day="19"/>
   </front>
 </reference>
 
