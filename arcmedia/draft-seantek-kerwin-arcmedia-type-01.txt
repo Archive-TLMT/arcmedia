@@ -6,7 +6,7 @@ Network Working Group                                         S. Leonard
 Internet-Draft                                             Penango, Inc.
 Updates: [2045, 6838] (if approved)                            M. Kerwin
 Intended status: Informational
-Expires: October 30, 2015                                 April 28, 2015
+Expires: November 7, 2015                                    May 6, 2015
 
 
            The Archive Top-Level Media Type for File Archives
@@ -33,7 +33,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on October 30, 2015.
+   This Internet-Draft will expire on November 7, 2015.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Leonard & Kerwin        Expires October 30, 2015                [Page 1]
+Leonard & Kerwin        Expires November 7, 2015                [Page 1]
 
-Internet-Draft                  arcmedia                      April 2015
+Internet-Draft                  arcmedia                        May 2015
 
 
 Table of Contents
@@ -74,6 +74,7 @@ Table of Contents
      10.1.  Normative References . . . . . . . . . . . . . . . . . .   7
      10.2.  Informative References . . . . . . . . . . . . . . . . .   7
    Appendix A.  Expected Subtypes  . . . . . . . . . . . . . . . . .   8
+   Appendix B.  Change Log . . . . . . . . . . . . . . . . . . . . .   8
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .   8
 
 1.  Introduction
@@ -105,14 +106,15 @@ Table of Contents
 
    2.  encryption
 
-   3.  authentication
 
 
 
-Leonard & Kerwin        Expires October 30, 2015                [Page 2]
+Leonard & Kerwin        Expires November 7, 2015                [Page 2]
 
-Internet-Draft                  arcmedia                      April 2015
+Internet-Draft                  arcmedia                        May 2015
 
+
+   3.  authentication
 
    4.  backup and restoration
 
@@ -163,83 +165,80 @@ Internet-Draft                  arcmedia                      April 2015
 
 
 
-
-
-Leonard & Kerwin        Expires October 30, 2015                [Page 3]
+Leonard & Kerwin        Expires November 7, 2015                [Page 3]
 
-Internet-Draft                  arcmedia                      April 2015
+Internet-Draft                  arcmedia                        May 2015
 
 
       Type name:
-         archive
+            archive
 
       Subtype name:
-         xxxxxxxx
+            xxxxxxxx
 
       Required parameters:
-         none
+            none
 
       Optional parameters:
-         TBD
+            TBD
 
       Encoding considerations:
-         base64 encoding is recommended when transmitting archive/*
-         documents through MIME electronic mail.
+            base64 encoding is recommended when transmitting archive/*
+            documents through MIME electronic mail.
 
       Security considerations:
-         see Section 9 below
+            see Section 9 below
 
       Published specification:
-         TBD
+            TBD
 
       Applications that use this media type:
-         TBD
+            TBD
 
       Fragment identifier considerations:
-         The considerations of this document, plus any extra syntaxes
-         not inconsistent with this document.
+            The considerations of this document, plus any extra syntaxes
+            not inconsistent with this document.
 
       Additional information:
 
+            Deprecated alias names for this type:  (Include non-archive
+                     alias names, such as those in application.)
 
-         Deprecated alias names for this type:  (Include non-archive
-            alias names, such as those in application.)
+            Magic number(s): TBD
 
-         Magic number(s): TBD
+            File extension(s): TBD
 
-         File extension(s): TBD
-
-         Macintosh file type code(s): TBD
+            Macintosh file type code(s): TBD
 
       See Appendix A for references to some of the expected subtypes.
 
 
 
       Person and email address to contact for further information:
-         TBD
-
-
-
-
-Leonard & Kerwin        Expires October 30, 2015                [Page 4]
-
-Internet-Draft                  arcmedia                      April 2015
-
+            TBD
 
       Intended usage:
-         TBD (COMMON will be the most common)
+
+
+
+Leonard & Kerwin        Expires November 7, 2015                [Page 4]
+
+Internet-Draft                  arcmedia                        May 2015
+
+
+            TBD (COMMON will be the most common)
 
       Restrictions on usage:
-         TBD
+            TBD
 
       Author:
-         TBD
+            TBD
 
       Change controller:
-         TBD
+            TBD
 
       Provisional registration? (standards tree only):
-         (Yes/No)
+            (Yes/No)
 
       (Any other information that the author deems interesting may be
       added below this line.)
@@ -277,9 +276,10 @@ Internet-Draft                  arcmedia                      April 2015
 
 
 
-Leonard & Kerwin        Expires October 30, 2015                [Page 5]
+
+Leonard & Kerwin        Expires November 7, 2015                [Page 5]
 
-Internet-Draft                  arcmedia                      April 2015
+Internet-Draft                  arcmedia                        May 2015
 
 
    o  Code Page - like charset but only applies to certain strings in
@@ -333,9 +333,9 @@ Internet-Draft                  arcmedia                      April 2015
 
 
 
-Leonard & Kerwin        Expires October 30, 2015                [Page 6]
+Leonard & Kerwin        Expires November 7, 2015                [Page 6]
 
-Internet-Draft                  arcmedia                      April 2015
+Internet-Draft                  arcmedia                        May 2015
 
 
    [[TODO: consider how to provide a fragment for content in the
@@ -376,8 +376,8 @@ Internet-Draft                  arcmedia                      April 2015
 10.2.  Informative References
 
    [CP437]    Microsoft Developer Network, "Code Page 437 MS-DOS Latin
-              US", April 2015, <https://msdn.microsoft.com/en-
-              us/library/cc195060.aspx>.
+              US", April 2015, <https://msdn.microsoft.com/en-us/library
+              /cc195060.aspx>.
 
    [ISO10646]
               International Organization for Standardization,
@@ -389,14 +389,14 @@ Internet-Draft                  arcmedia                      April 2015
 
 
 
-Leonard & Kerwin        Expires October 30, 2015                [Page 7]
+Leonard & Kerwin        Expires November 7, 2015                [Page 7]
 
-Internet-Draft                  arcmedia                      April 2015
+Internet-Draft                  arcmedia                        May 2015
 
 
    [ZIP]      Lindner, P., "application/zip registration at IANA", June
-              1993, <http://www.iana.org/assignments/media-
-              types/application/zip>.
+              1993, <http://www.iana.org/assignments/media-types/
+              application/zip>.
 
 Appendix A.  Expected Subtypes
 
@@ -413,6 +413,23 @@ Appendix A.  Expected Subtypes
    Disk Imaging  ISO, NRG, BIN/CUE, VMDK, WIM, PartImage, IMG/IMA/IMZ,
       DMG
 
+Appendix B.  Change Log
+
+   Changes since -00
+
+   o  retool to use XML2RFC - lots of layout changes
+
+   o  remove large sections of text, as suggested by Ned Freed and Dave
+      Crocker
+
+   o  replace "primary" with "top-level", and "content-type" with "media
+      type" throughout
+
+   o  add reference to RFC 6838 (BCP 13) - Media Type Specifications and
+      Registration Procedures
+
+   o  lots of editorial changes
+
 Authors' Addresses
 
    Sean Leonard
@@ -424,6 +441,13 @@ Authors' Addresses
 
    Email: dev+ietf@seantek.com
    URI:   http://www.penango.com/
+
+
+
+
+Leonard & Kerwin        Expires November 7, 2015                [Page 8]
+
+Internet-Draft                  arcmedia                        May 2015
 
 
    Matthew Kerwin
@@ -445,4 +469,36 @@ Authors' Addresses
 
 
 
-Leonard & Kerwin        Expires October 30, 2015                [Page 8]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Leonard & Kerwin        Expires November 7, 2015                [Page 9]

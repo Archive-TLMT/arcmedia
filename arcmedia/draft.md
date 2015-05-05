@@ -363,3 +363,16 @@ Software Packaging
 Disk Imaging
 : ISO, NRG, BIN/CUE, VMDK, WIM, PartImage, IMG/IMA/IMZ, DMG
 
+# Change Log
+
+Changes since -00
+
+ * retool to use XML2RFC -- lots of layout changes
+ * remove large sections of text, as suggested by Ned Freed and
+   Dave Crocker
+ * replace "primary" with "top-level", and "content-type" with
+   "media type" throughout
+ * add reference to RFC 6838 (BCP 13) - Media Type Specifications
+   and Registration Procedures
+ * lots of editorial changes
+

@@ -12,28 +12,6 @@
 	  a {
 	  text-decoration: none;
 	  }
-      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
-      a.info {
-          /* This is the key. */
-          position: relative;
-          z-index: 24;
-          text-decoration: none;
-      }
-      a.info:hover {
-          z-index: 25;
-          color: #FFF; background-color: #900;
-      }
-      a.info span { display: none; }
-      a.info:hover span.info {
-          /* The span will display just on :hover state. */
-          display: block;
-          position: absolute;
-          font-size: smaller;
-          top: 2em; left: -5em; width: 15em;
-          padding: 2px; border: 1px solid #333;
-          color: #900; background-color: #EEE;
-          text-align: left;
-      }
 	  a.smpl {
 	  color: black;
 	  }
@@ -388,17 +366,18 @@
 <link href="#rfc.references.1" rel="Chapter" title="10.1 Normative References"/>
 <link href="#rfc.references.2" rel="Chapter" title="10.2 Informative References"/>
 <link href="#rfc.appendix.A" rel="Chapter" title="A Expected Subtypes"/>
+<link href="#rfc.appendix.B" rel="Chapter" title="B Change Log"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
-  <meta name="generator" content="xml2rfc version 2.4.8 - http://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.4.3 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Leonard, S. and M. Kerwin" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-seantek-kerwin-arcmedia-type-01" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-4-28" />
-  <meta name="dct.abstract" content="This document defines a new top-level media type to be known as &#8220;archive&#8221;, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
-  <meta name="description" content="This document defines a new top-level media type to be known as &#8220;archive&#8221;, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-5-6" />
+  <meta name="dct.abstract" content="This document defines a new top-level media type to be known as “archive”, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
+  <meta name="description" content="This document defines a new top-level media type to be known as “archive”, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
 
 </head>
 
@@ -424,8 +403,8 @@
   <td class="right"></td>
 </tr>
 <tr>
-  <td class="left">Expires: October 30, 2015</td>
-  <td class="right">April 28, 2015</td>
+  <td class="left">Expires: November 7, 2015</td>
+  <td class="right">May 6, 2015</td>
 </tr>
 
     	
@@ -445,7 +424,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on October 30, 2015.</p>
+<p>This Internet-Draft will expire on November 7, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -471,6 +450,7 @@
 <li>10.1.   <a href="#rfc.references.1">Normative References</a></li>
 <li>10.2.   <a href="#rfc.references.2">Informative References</a></li>
 <li>Appendix A.   <a href="#rfc.appendix.A">Expected Subtypes</a></li>
+<li>Appendix B.   <a href="#rfc.appendix.B">Change Log</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -641,6 +621,17 @@
   <dt>Disk Imaging</dt>
   <dd style="margin-left: 8">ISO, NRG, BIN/CUE, VMDK, WIM, PartImage, IMG/IMA/IMZ, DMG</dd>
 </dl>
+<h1 id="rfc.appendix.B"><a href="#rfc.appendix.B">Appendix B.</a> <a href="#change-log" id="change-log">Change Log</a></h1>
+<p id="rfc.section.B.p.1">Changes since -00</p>
+<p/>
+
+<ul>
+  <li>retool to use XML2RFC &#8211; lots of layout changes</li>
+  <li>remove large sections of text, as suggested by Ned Freed and Dave Crocker</li>
+  <li>replace &#8220;primary&#8221; with &#8220;top-level&#8221;, and &#8220;content-type&#8221; with &#8220;media type&#8221; throughout</li>
+  <li>add reference to RFC 6838 (BCP 13) - Media Type Specifications and Registration Procedures</li>
+  <li>lots of editorial changes</li>
+</ul>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
 </h1>
@@ -654,8 +645,8 @@
 	</span>
 	<span class="org vcardline">Penango, Inc.</span>
 	<span class="adr">
-	  <span class="vcardline">5900 Wilshire Boulevard</span>
-<span class="vcardline">21st Floor</span>
+	  <span>5900 Wilshire Boulevard</span>
+<span>21st Floor</span>
 
 	  <span class="vcardline">
 		<span class="locality">Los Angeles</span>,  
