@@ -4,7 +4,7 @@
 
 Network Working Group                                         S. Leonard
 Internet-Draft                                             Penango, Inc.
-Updates: [2045, 6838] (if approved)                            M. Kerwin
+Updates: 2045, 6838 (if approved)                              M. Kerwin
 Intended status: Informational
 Expires: November 7, 2015                                    May 6, 2015
 
