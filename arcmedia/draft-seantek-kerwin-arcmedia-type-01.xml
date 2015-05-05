@@ -481,6 +481,22 @@ subtypes along with this effort:</t>
 </list></t>
 
 </section>
+<section anchor="change-log" title="Change Log">
+
+<t>Changes since -00</t>
+
+<t><list style="symbols">
+  <t>retool to use XML2RFC – lots of layout changes</t>
+  <t>remove large sections of text, as suggested by Ned Freed and
+Dave Crocker</t>
+  <t>replace “primary” with “top-level”, and “content-type” with
+“media type” throughout</t>
+  <t>add reference to RFC 6838 (BCP 13) - Media Type Specifications
+and Registration Procedures</t>
+  <t>lots of editorial changes</t>
+</list></t>
+
+</section>
 
 
   </back>
