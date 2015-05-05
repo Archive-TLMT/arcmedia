@@ -1,7 +1,7 @@
 ---
 title: The Archive Top-Level Media Type for File Archives
 abbrev: arcmedia
-docname: draft-seantek-kerwin-arcmedia-type-01
+docname: draft-seantek-kerwin-arcmedia-type-02
 date: 2015
 category: info
 
