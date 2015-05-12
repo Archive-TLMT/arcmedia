@@ -358,8 +358,9 @@ Internet-Draft                  arcmedia                        May 2015
    both the individual type and composite subtypes.  Composite subtype
    names should use the caret character "^" to distinguish subsequent
    layers of encapsulation.  See section 4.2 of [RFC6838].  Having both
-   registrations provides applications the option of choosing between
-   "archive/tar" + Content-Encoding "gzip", or "archive/tar^gz".
+   registrations provides applications the option of choosing between,
+   for example, "archive/tar" + Content-Encoding "gzip", or "archive/
+   tar^gz".
 
 9.  Security Considerations
 
@@ -384,7 +385,6 @@ Internet-Draft                  arcmedia                        May 2015
               6838, January 2013.
 
 10.2.  Informative References
-
 
 
 

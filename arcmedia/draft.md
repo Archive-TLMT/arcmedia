@@ -360,7 +360,8 @@ layers of encapsulation.
 {::comment}For example "archive/tar" and "archive/tar^gz"{:/comment}
 See section 4.2 of [RFC6838].
 Having both registrations provides applications the option of choosing
-between "archive/tar" + Content-Encoding "gzip", or "archive/tar^gz".
+between, for example, "archive/tar" + Content-Encoding "gzip", or
+"archive/tar^gz".
 
 
 # Security Considerations  {#security}
