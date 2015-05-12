@@ -302,7 +302,8 @@ layers of encapsulation.
 
 See section 4.2 of <xref target="RFC6838"></xref>.
 Having both registrations provides applications the option of choosing
-between “archive/tar” + Content-Encoding “gzip”, or “archive/tar^gz”.</t>
+between, for example, “archive/tar” + Content-Encoding “gzip”, or
+“archive/tar^gz”.</t>
 
 </section>
 <section anchor="security" title="Security Considerations">
