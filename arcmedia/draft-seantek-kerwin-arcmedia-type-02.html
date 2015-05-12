@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>The Archive Top-Level Media Type for File Archives</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  max-width: 55em;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+
+  <link href="#rfc.toc" rel="Contents"/>
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction"/>
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Notational Conventions"/>
+<link href="#rfc.section.2" rel="Chapter" title="2 Definition of an archive"/>
+<link href="#rfc.section.3" rel="Chapter" title="3 Encoding and Transport"/>
+<link href="#rfc.section.4" rel="Chapter" title="4 Registration Template"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 Common Required and Optional Parameters"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Split Archives"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Fragment Identifier Syntax"/>
+<link href="#rfc.section.8" rel="Chapter" title="8 Piped-Composite Type Suffix Syntax"/>
+<link href="#rfc.section.9" rel="Chapter" title="9 Security Considerations"/>
+<link href="#rfc.references" rel="Chapter" title="10 References"/>
+<link href="#rfc.references.1" rel="Chapter" title="10.1 Normative References"/>
+<link href="#rfc.references.2" rel="Chapter" title="10.2 Informative References"/>
+<link href="#rfc.appendix.A" rel="Chapter" title="A Expected Subtypes"/>
+<link href="#rfc.appendix.B" rel="Chapter" title="B Change Log"/>
+<link href="#rfc.authors" rel="Chapter"/>
+
+
+  <meta name="generator" content="xml2rfc version 2.4.3 - http://tools.ietf.org/tools/xml2rfc" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+
+  <meta name="dct.creator" content="Leonard, S. and M. Kerwin" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-seantek-kerwin-arcmedia-type-02" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-5-13" />
+  <meta name="dct.abstract" content="This document defines a new top-level media type to be known as “archive”, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
+  <meta name="description" content="This document defines a new top-level media type to be known as “archive”, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+  <td class="left">Network Working Group</td>
+  <td class="right">S. Leonard</td>
+</tr>
+<tr>
+  <td class="left">Internet-Draft</td>
+  <td class="right">Penango, Inc.</td>
+</tr>
+<tr>
+  <td class="left">Updates: [2045, 6838] (if approved)</td>
+  <td class="right">M. Kerwin</td>
+</tr>
+<tr>
+  <td class="left">Intended status: Informational</td>
+  <td class="right"></td>
+</tr>
+<tr>
+  <td class="left">Expires: November 14, 2015</td>
+  <td class="right">May 13, 2015</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">The Archive Top-Level Media Type for File Archives<br />
+  <span class="filename">draft-seantek-kerwin-arcmedia-type-02</span></p>
+  
+  <h1 id="rfc.abstract">
+  <a href="#rfc.abstract">Abstract</a>
+</h1>
+<p>This document defines a new top-level media type to be known as &#8220;archive&#8221;, which defines a fundamental type of media with unique presentational, hardware, and processing aspects.</p>
+<h1 id="rfc.status">
+  <a href="#rfc.status">Status of This Memo</a>
+</h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on November 14, 2015.</p>
+<h1 id="rfc.copyrightnotice">
+  <a href="#rfc.copyrightnotice">Copyright Notice</a>
+</h1>
+<p>Copyright (c) 2015 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
+<li>1.1.   <a href="#rfc.section.1.1">Notational Conventions</a></li>
+<li>2.   <a href="#rfc.section.2">Definition of an archive</a></li>
+<li>3.   <a href="#rfc.section.3">Encoding and Transport</a></li>
+<li>4.   <a href="#rfc.section.4">Registration Template</a></li>
+<li>5.   <a href="#rfc.section.5">Common Required and Optional Parameters</a></li>
+<li>6.   <a href="#rfc.section.6">Split Archives</a></li>
+<li>7.   <a href="#rfc.section.7">Fragment Identifier Syntax</a></li>
+<li>8.   <a href="#rfc.section.8">Piped-Composite Type Suffix Syntax</a></li>
+<li>9.   <a href="#rfc.section.9">Security Considerations</a></li>
+<li>10.   <a href="#rfc.references">References</a></li>
+<li>10.1.   <a href="#rfc.references.1">Normative References</a></li>
+<li>10.2.   <a href="#rfc.references.2">Informative References</a></li>
+<li>Appendix A.   <a href="#rfc.appendix.A">Expected Subtypes</a></li>
+<li>Appendix B.   <a href="#rfc.appendix.B">Change Log</a></li>
+<li><a href="#rfc.authors">Authors' Addresses</a></li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a></h1>
+<p id="rfc.section.1.p.1">The purpose of this memo is to update <a href="#RFC2045">[RFC2045]</a> and <a href="#RFC6838">[RFC6838]</a> to include a new top-level media type to be known as &#8220;archive&#8221;.  <a href="#RFC6838">[RFC6838]</a> describes mechanisms for specifying and describing the format of Internet Message Bodies via media type/subtype pairs.  &#8220;archive&#8221; defines a fundamental type of media with unique presentational, hardware, and processing aspects.  Various subtypes of this top-level type are immediately anticipated, and will be covered under separate documents.</p>
+<h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> <a href="#notational-conventions" id="notational-conventions">Notational Conventions</a></h1>
+<p id="rfc.section.1.1.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in <a href="#RFC2119">[RFC2119]</a>.</p>
+<h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#definition" id="definition">Definition of an archive</a></h1>
+<p id="rfc.section.2.p.1">The archive top-level media type identifies a container of one or more data objects and metadata about them.  Archives are used to collect multiple data objects together into a single object for easier portability and storage.  Archive formats can provide many optional services, including:</p>
+<p/>
+
+<ol>
+  <li>compression</li>
+  <li>encryption</li>
+  <li>authentication</li>
+  <li>backup and restoration</li>
+  <li>filesystem imaging</li>
+  <li>software packaging and distribution</li>
+  <li>volume-splitting (archive split into multiple objects)</li>
+  <li>block storage</li>
+</ol>
+<p id="rfc.section.2.p.3">Formats and techniques that support one or more of these services already exist under separate registrations.  For example, the Content-Encoding header can be used to signal compressed Internet message content.  The distinguishing feature of the archive top-level type is that these services are integrated into the format itself, along with the inclusion of object-specific metadata.</p>
+<p id="rfc.section.2.p.4">Formats contemplated under this top-level type are designed to concatenate multiple objects into a single data stream, along with names and other metadata.  When an Internet-facing application handles content labeled with this type, it SHOULD treat the archive as a discrete data item.  For example, an Internet mail user agent might display an archive-labeled type with an archive icon, possibly with a preview of the objects contained therein, as opposed to automatically extracting its contents.</p>
+<h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#encoding" id="encoding">Encoding and Transport</a></h1>
+<p id="rfc.section.3.p.1">Unrecognized subtypes of archive SHOULD be treated as &#8220;archive/file&#8221;.  Like &#8220;application/octet-stream&#8221;, the purpose of the &#8220;archive/file&#8221; type is to provide default handling;  it does not represent a particular archive format.  Implementations SHOULD defer handling of unrecognized subtypes of archive to a robust general-purpose archive processing application, if such an application is available.</p>
+<p id="rfc.section.3.p.2">If default archive handling is not supported, the archive MAY be treated as if it were &#8220;application/octet-stream&#8221;.</p>
+<p id="rfc.section.3.p.3">Unless noted in the subtype registration, subtypes of archive MUST be assumed to contain binary data, implying the use of base64 content encoding for email and binary transfer for ftp and http.</p>
+<h1 id="rfc.section.4"><a href="#rfc.section.4">4.</a> <a href="#template" id="template">Registration Template</a></h1>
+<p id="rfc.section.4.p.1">The formal syntax for the subtypes of the archive top-level type SHOULD look like this:</p>
+<p/>
+
+<ul class="empty">
+  <li>
+    <dl>
+      <dt>Type name:</dt>
+      <dd style="margin-left: 8"><br/> archive</dd>
+      <dt>Subtype name:</dt>
+      <dd style="margin-left: 8"><br/> xxxxxxxx</dd>
+      <dt>Required parameters:</dt>
+      <dd style="margin-left: 8"><br/> none</dd>
+      <dt>Optional parameters:</dt>
+      <dd style="margin-left: 8"><br/> TBD</dd>
+      <dt>Encoding considerations:</dt>
+      <dd style="margin-left: 8"><br/> base64 encoding is recommended when transmitting archive/* documents through MIME electronic mail.</dd>
+      <dt>Security considerations:</dt>
+      <dd style="margin-left: 8"><br/> see <a href="#security">Section 9</a> below</dd>
+      <dt>Published specification:</dt>
+      <dd style="margin-left: 8"><br/> TBD</dd>
+      <dt>Applications that use this media type:</dt>
+      <dd style="margin-left: 8"><br/> TBD</dd>
+      <dt>Fragment identifier considerations:</dt>
+      <dd style="margin-left: 8"><br/> The considerations of this document, plus any extra syntaxes not inconsistent with this document.</dd>
+      <dt>Additional information:</dt>
+      <dd style="margin-left: 8"><br/> <dl><dt>Deprecated alias names for this type:</dt><dd style="margin-left: 8">(Include non-archive alias names, such as those in application.)</dd></dl><p> </p></dd>
+      <dt></dt>
+      <dd style="margin-left: 8">Magic number(s): TBD</dd>
+      <dt></dt>
+      <dd style="margin-left: 8">File extension(s): TBD</dd>
+      <dt></dt>
+      <dd style="margin-left: 8">Macintosh file type code(s): TBD</dd>
+    </dl>
+  </li>
+  <li>See <a href="#subtypes">Appendix A</a> for references to some of the expected subtypes.</li>
+  <li>
+    <dl>
+      <dt>Person and email address to contact for further information:</dt>
+      <dd style="margin-left: 8"><br/> TBD</dd>
+      <dt>Intended usage:</dt>
+      <dd style="margin-left: 8"><br/> TBD (COMMON will be the most common)</dd>
+      <dt>Restrictions on usage:</dt>
+      <dd style="margin-left: 8"><br/> TBD</dd>
+      <dt>Author:</dt>
+      <dd style="margin-left: 8"><br/> TBD</dd>
+      <dt>Change controller:</dt>
+      <dd style="margin-left: 8"><br/> TBD</dd>
+      <dt>Provisional registration? (standards tree only):</dt>
+      <dd style="margin-left: 8"><br/> (Yes/No)</dd>
+    </dl>
+  </li>
+  <li>(Any other information that the author deems interesting may be added below this line.)</li>
+</ul>
+<p id="rfc.section.4.p.3">The optional parameters consist of starting conditions and variable values used as part of the subtypes.</p>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#parameters" id="parameters">Common Required and Optional Parameters</a></h1>
+<p id="rfc.section.5.p.1">Archive formats usually include parameteric meta-data within the format.  Consequently, subtypes of archive SHOULD NOT specify the same information as type parameters.</p>
+<p id="rfc.section.5.p.2">Some archive formats are very old, or are designed to be backwards-compatible with older formats, and as such might not have been designed with transport across the Internet in mind.  For example, modern versions of the ZIP file format <a href="#ZIP">[ZIP]</a> include support for the Universal Character Set <a href="#ISO10646">[ISO10646]</a>, however the default encoding of filenames within a ZIP archive has always been Code Page 437 <a href="#CP437">[CP437]</a>.  Due to the historical nature of archives, and to support interoperability with older implementations, sometimes it is preferable to communicate the archive as-is, rather than updating it to a more modern or universal format.  </p>
+<p id="rfc.section.5.p.3">Implementations that are archive-type aware MUST support the following parameters for maximum compatibility.  At the same time, new archive types SHOULD NOT rely on these parameters for disambiguation; new archive types SHOULD be designed in such a way that &#8220;universal&#8221; interoperability is achieved using information contained within the archive format itself.</p>
+<p id="rfc.section.5.p.4">[[TODO: write this list]]</p>
+<p/>
+
+<ul>
+  <li>Code Page &#8211; like charset but only applies to certain strings in the archive, when the archive format is ambiguous.  Do not attempt to apply this parameter as one would apply charset to text/*</li>
+  <li>Endianness?</li>
+  <li>Time/Y2K representation issues?</li>
+  <li>Anything else?</li>
+</ul>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#splitarchives" id="splitarchives">Split Archives</a></h1>
+<p id="rfc.section.6.p.1">Several archive formats (notably RAR and ZIP) support split archives.  A &#8220;split archive&#8221; can be stored in multiple files, or more generally, across multiple storage media.</p>
+<p id="rfc.section.6.p.2">For example, the ZIP format supports two types of splits: &#8220;split archive&#8221; and &#8220;spanned archive&#8221;.  A &#8220;split archive&#8221; is a standard ZIP archive split over multiple files using file extensions .z01, .z02, etc.; the final file in the sequence uses the .zip file extension.  The &#8220;spanned archive&#8221; was designed for use on floppy disks with restrictive space limitations;  all archive files have the same filename, and volume labels (presumably on floppy disks) are used to store sequence information.  Neither sub-format is merely a naive division of the octet stream: each ZIP file is parseable in its own right, and contains its own offset values.</p>
+<p id="rfc.section.6.p.3">The TAR format (or family of formats, including cpio and ustar) was originally designed for streaming to and from tape devices, so splitting is accomplished differently.</p>
+<p id="rfc.section.6.p.4">[[TODO: Consider how to label this content. archive/zip^01? archive/zip; split=01? Something else? How shall 01 be associated with 02, 03, etc., when the Content-Disposition: ; filename=&#8221;&#8221; parameter is &#8220;presentation-information&#8221; and may be separated from the Content-Type header information?]]</p>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#fragments" id="fragments">Fragment Identifier Syntax</a></h1>
+<p id="rfc.section.7.p.1">As archives usually store objects in hierarchical structures similar to filesystems, archives can serve as virtual filesystems.  Respondents have noted that the objects stored in an archive can be addressed by a fragment syntax that resembles a filesystem path.  At the same time, archives can store objects in different ways (along with different types of metadata), suggesting that a common baseline with flexible extension points is more appropriate than a fixed universal syntax.  [[TODO: This will be explored in future drafts.]]</p>
+<p id="rfc.section.7.p.2">[[TODO: consider how to provide a fragment for content in the archive. NB: most archives do NOT provide Content-Type/media type information! So /foo.html being an HTML file is just an <em>assumption</em>, and possibly a very wrong one at that. There is no IETF registry for file extensions.  Note the similarities with this and the file: URI]]</p>
+<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#piped-composite-type-suffix-syntax" id="piped-composite-type-suffix-syntax">Piped-Composite Type Suffix Syntax</a></h1>
+<p id="rfc.section.8.p.1">Some archive formats provide a subset of desired services, so it is common for multiple formats to be used in series. For example, the ustar format <a href="#TAR">[TAR]</a> provides aggregation without compression, while gzip <a href="#RFC6713">[RFC6713]</a> provides compression without aggregation, so it is common to encounter archives comprising a ustar archive encapsulated within a gzip archive.  </p>
+<p id="rfc.section.8.p.2">Archives that support such compositing have the option of registering both the individual type and composite subtypes.  Composite subtype names should use the caret character &#8220;^&#8221; to distinguish subsequent layers of encapsulation.  See section 4.2 of <a href="#RFC6838">[RFC6838]</a>.  Having both registrations provides applications the option of choosing between &#8220;archive/tar&#8221; + Content-Encoding &#8220;gzip&#8221;, or &#8220;archive/tar^gz&#8221;.</p>
+<h1 id="rfc.section.9"><a href="#rfc.section.9">9.</a> <a href="#security" id="security">Security Considerations</a></h1>
+<p id="rfc.section.9.p.1">Archives can store files, file metadata, and even entire filesystems; thus, security issues loom large because archives can contain just about anything. These concerns are magnified by the arbitrary transport of such data across the Internet. [[TODO: complete.]]</p>
+<h1 id="rfc.references"><a href="#rfc.references">10.</a> References</h1>
+<h1 id="rfc.references.1"><a href="#rfc.references.1">10.1.</a> Normative References</h1>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="RFC2045">[RFC2045]</b>
+      </td>
+      <td class="top"><a href="mailto:ned@innosoft.com" title="Innosoft International, Inc.">Freed, N.</a> and <a href="mailto:nsb@nsb.fv.com" title="First Virtual Holdings">N. Borenstein</a>, "<a href="http://tools.ietf.org/html/rfc2045">Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies</a>", RFC 2045, November 1996.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC2119">[RFC2119]</b>
+      </td>
+      <td class="top"><a href="mailto:sob@harvard.edu" title="Harvard University">Bradner, S.</a>, "<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, March 1997.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC6838">[RFC6838]</b>
+      </td>
+      <td class="top"><a>Freed, N.</a>, <a>Klensin, J.</a> and <a>T. Hansen</a>, "<a href="http://tools.ietf.org/html/rfc6838">Media Type Specifications and Registration Procedures</a>", BCP 13, RFC 6838, January 2013.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.references.2"><a href="#rfc.references.2">10.2.</a> Informative References</h1>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="CP437">[CP437]</b>
+      </td>
+      <td class="top"><a>Microsoft Developer Network</a>, "<a href="https://msdn.microsoft.com/en-us/library/cc195060.aspx">Code Page 437 MS-DOS Latin US</a>", April 2015.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="ISO10646">[ISO10646]</b>
+      </td>
+      <td class="top"><a>International Organization for Standardization</a>, "<a>Information Technology - Universal Multiple-Octet Coded Character Set (UCS)</a>", ISO/IEC 10646:2003, December 2003.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC6713">[RFC6713]</b>
+      </td>
+      <td class="top"><a>Levine, J.</a>, "<a href="http://tools.ietf.org/html/rfc6713">The 'application/zlib' and 'application/gzip' Media Types</a>", RFC 6713, August 2012.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="TAR">[TAR]</b>
+      </td>
+      <td class="top"><a>The Open Group</a>, "<a href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/pax.html#tag_20_92_13_06">ustar Interchange Format</a>", April 2013.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="ZIP">[ZIP]</b>
+      </td>
+      <td class="top"><a>Lindner, P.</a>, "<a href="http://www.iana.org/assignments/media-types/application/zip">application/zip registration at IANA</a>", June 1993.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> <a href="#subtypes" id="subtypes">Expected Subtypes</a></h1>
+<p id="rfc.section.A.p.1">The following archive formats will be explored for registration as subtypes along with this effort:</p>
+<p/>
+
+<dl>
+  <dt>Archiving Only</dt>
+  <dd style="margin-left: 8">TAR</dd>
+  <dt>Multipurpose (archiving, compression, encryption)</dt>
+  <dd style="margin-left: 8">ZIP, ACE, RAR, 7-Zip, StuffIt, FreeArc</dd>
+  <dt>Software Packaging</dt>
+  <dd style="margin-left: 8">MSI, RPM, JAR, XPI, CAB, CRX, APK</dd>
+  <dt>Disk Imaging</dt>
+  <dd style="margin-left: 8">ISO, NRG, BIN/CUE, VMDK, WIM, PartImage, IMG/IMA/IMZ, DMG</dd>
+</dl>
+<h1 id="rfc.appendix.B"><a href="#rfc.appendix.B">Appendix B.</a> <a href="#change-log" id="change-log">Change Log</a></h1>
+<p id="rfc.section.B.p.1">Changes since -00</p>
+<p/>
+
+<ul>
+  <li>retool to use XML2RFC &#8211; lots of layout changes</li>
+  <li>remove large sections of text, as suggested by Ned Freed and Dave Crocker</li>
+  <li>replace &#8220;primary&#8221; with &#8220;top-level&#8221;, and &#8220;content-type&#8221; with &#8220;media type&#8221; throughout</li>
+  <li>add reference to RFC 6838 (BCP 13) - Media Type Specifications and Registration Procedures</li>
+  <li>lots of editorial changes</li>
+</ul>
+<h1 id="rfc.authors">
+  <a href="#rfc.authors">Authors' Addresses</a>
+</h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Sean Leonard</span> 
+	  <span class="n hidden">
+		<span class="family-name">Leonard</span>
+	  </span>
+	</span>
+	<span class="org vcardline">Penango, Inc.</span>
+	<span class="adr">
+	  <span>5900 Wilshire Boulevard</span>
+<span>21st Floor</span>
+
+	  <span class="vcardline">
+		<span class="locality">Los Angeles</span>,  
+		<span class="region">CA</span> 
+		<span class="code">90036</span>
+	  </span>
+	  <span class="country-name vcardline">USA</span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:dev+ietf@seantek.com">dev+ietf@seantek.com</a></span>
+
+<span class="vcardline">URI: <a href="http://www.penango.com/">http://www.penango.com/</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Matthew Kerwin</span> 
+	  <span class="n hidden">
+		<span class="family-name">Kerwin</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:matthew@kerwin.net.au">matthew@kerwin.net.au</a></span>
+
+<span class="vcardline">URI: <a href="http://matthew.kerwin.net.au/">http://matthew.kerwin.net.au/</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>
