@@ -46,6 +46,7 @@ normative:
   RFC6838:
 
 informative:
+  RFC6713:
   ISO10646:
     title: Information Technology - Universal Multiple-Octet Coded Character Set (UCS)
     author:
@@ -59,6 +60,18 @@ informative:
     - organization: Microsoft Developer Network
     date: 2015-04-20
     target: https://msdn.microsoft.com/en-us/library/cc195060.aspx
+  TAR:
+    title: ustar Interchange Format
+    author:
+    - organization: The Open Group
+    date: 2013-04-19
+    target: http://pubs.opengroup.org/onlinepubs/9699919799/utilities/pax.html#tag_20_92_13_06
+  #POSIX:
+  #  title: Standard for Information TechnologyPortable Operating System Interface (POSIX(R)) Base Specifications, Issue 7
+  #  author:
+  #  - organization: The Open Group
+  #  date: 2013-04-19
+  #  target: http://ieeexplore.ieee.org/servlet/opac?punumber=6506089
   ZIP:
     title: application/zip registration at IANA
     author:
@@ -233,7 +246,7 @@ values used as part of the subtypes.
 
 Archive formats usually include parameteric meta-data within the
 format.  Consequently, subtypes of archive SHOULD NOT specify
-the same information as parameters to the type.
+the same information as type parameters.
 
 Some archive formats are very old, or are designed to be
 backwards-compatible with older formats, and as such might not have
@@ -318,22 +331,36 @@ fragment syntax that resembles a filesystem path.  At the same time,
 archives can store objects in different ways (along with different
 types of metadata), suggesting that a common baseline with flexible
 extension points is more appropriate than a fixed universal syntax.
-\[\[TODO: This will be explored in future drafts.  Note the
-similarities with this and the file: URI...\]\]
+\[\[TODO: This will be explored in future drafts.\]\]
 
 \[\[TODO: consider how to provide a fragment for content in the
 archive. NB: most archives do NOT provide Content-Type/media type
 information! So /foo.html being an HTML file is just an *assumption*,
 and possibly a very wrong one at that. There is no IETF registry for
-file extensions.\]\]
+file extensions.  Note the similarities with this and the file: URI\]\]
 
 
 # Piped-Composite Type Suffix Syntax
 
-\[\[TODO: discuss tar piped through bzip2, gzip, etc. as a distinct
-file format, rather than an application of the Content-Encoding:
-header. Suggest common suffix like archive/tar|bzip2, where \| is some
-useful character but not \+ since \+ is for structured syntaxes.\]\]
+Some archive formats provide a subset of desired services, so it is
+common for multiple formats to be used in series. For example, the
+ustar format [TAR] provides aggregation without compression, while gzip
+[RFC6713] provides compression without aggregation, so it is common to
+encounter archives comprising a ustar archive encapsulated within a
+gzip archive.
+{::comment}
+These are often identified by the concatenation of the individual file
+suffixes ".tar.gz" or the shorthand equivalent ".tgz".
+{:/comment}
+
+Archives that support such compositing have the option of registering
+both the individual type and composite subtypes.  Composite subtype
+names should use the caret character "^" to distinguish subsequent
+layers of encapsulation.
+{::comment}For example "archive/tar" and "archive/tar^gz"{:/comment}
+See section 4.2 of [RFC6838].
+Having both registrations provides applications the option of choosing
+between "archive/tar" + Content-Encoding "gzip", or "archive/tar^gz".
 
 
 # Security Considerations  {#security}
