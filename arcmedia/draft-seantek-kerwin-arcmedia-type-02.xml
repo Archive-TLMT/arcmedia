@@ -14,7 +14,7 @@
 <?rfc comments="yes"?>
 <?rfc inline="yes"?>
 
-<rfc ipr="trust200902" docName="draft-seantek-kerwin-arcmedia-type-01" category="info" updates="[2045, 6838]">
+<rfc ipr="trust200902" docName="draft-seantek-kerwin-arcmedia-type-02" category="info" updates="[2045, 6838]">
 
   <front>
     <title abbrev="arcmedia">The Archive Top-Level Media Type for File Archives</title>
@@ -205,7 +205,7 @@ values used as part of the subtypes.</t>
 
 <t>Archive formats usually include parameteric meta-data within the
 format.  Consequently, subtypes of archive SHOULD NOT specify
-the same information as parameters to the type.</t>
+the same information as type parameters.</t>
 
 <t>Some archive formats are very old, or are designed to be
 backwards-compatible with older formats, and as such might not have
@@ -276,22 +276,33 @@ fragment syntax that resembles a filesystem path.  At the same time,
 archives can store objects in different ways (along with different
 types of metadata), suggesting that a common baseline with flexible
 extension points is more appropriate than a fixed universal syntax.
-[[TODO: This will be explored in future drafts.  Note the
-similarities with this and the file: URI…]]</t>
+[[TODO: This will be explored in future drafts.]]</t>
 
 <t>[[TODO: consider how to provide a fragment for content in the
 archive. NB: most archives do NOT provide Content-Type/media type
 information! So /foo.html being an HTML file is just an <spanx style="emph">assumption</spanx>,
 and possibly a very wrong one at that. There is no IETF registry for
-file extensions.]]</t>
+file extensions.  Note the similarities with this and the file: URI]]</t>
 
 </section>
 <section anchor="piped-composite-type-suffix-syntax" title="Piped-Composite Type Suffix Syntax">
 
-<t>[[TODO: discuss tar piped through bzip2, gzip, etc. as a distinct
-file format, rather than an application of the Content-Encoding:
-header. Suggest common suffix like archive/tar|bzip2, where | is some
-useful character but not + since + is for structured syntaxes.]]</t>
+<t>Some archive formats provide a subset of desired services, so it is
+common for multiple formats to be used in series. For example, the
+ustar format <xref target="TAR"></xref> provides aggregation without compression, while gzip
+<xref target="RFC6713"></xref> provides compression without aggregation, so it is common to
+encounter archives comprising a ustar archive encapsulated within a
+gzip archive.
+</t>
+
+<t>Archives that support such compositing have the option of registering
+both the individual type and composite subtypes.  Composite subtype
+names should use the caret character “^” to distinguish subsequent
+layers of encapsulation.
+
+See section 4.2 of <xref target="RFC6838"></xref>.
+Having both registrations provides applications the option of choosing
+between “archive/tar” + Content-Encoding “gzip”, or “archive/tar^gz”.</t>
 
 </section>
 <section anchor="security" title="Security Considerations">
@@ -431,6 +442,25 @@ such data across the Internet. [[TODO: complete.]]</t>
 
     <references title='Informative References'>
 
+
+
+
+
+<reference anchor='RFC6713'>
+
+<front>
+<title>The 'application/zlib' and 'application/gzip' Media Types</title>
+<author initials='J.' surname='Levine' fullname='J. Levine'>
+<organization /></author>
+<date year='2012' month='August' />
+<abstract>
+<t>This document defines the 'application/gzip' and 'application/zlib' media types for compressed data using the gzip and zlib compression formats.  This document is not an Internet Standards Track specification; it is published for informational purposes.</t></abstract></front>
+
+<seriesInfo name='RFC' value='6713' />
+<format type='TXT' octets='6525' target='http://www.rfc-editor.org/rfc/rfc6713.txt' />
+</reference>
+
+
 <reference anchor="ISO10646" >
   <front>
     <title>Information Technology - Universal Multiple-Octet Coded Character Set (UCS)</title>
@@ -448,6 +478,15 @@ such data across the Internet. [[TODO: complete.]]</t>
       <organization>Microsoft Developer Network</organization>
     </author>
     <date year="2015" month="April" day="20"/>
+  </front>
+</reference>
+<reference anchor="TAR" target="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/pax.html#tag_20_92_13_06">
+  <front>
+    <title>ustar Interchange Format</title>
+    <author >
+      <organization>The Open Group</organization>
+    </author>
+    <date year="2013" month="April" day="19"/>
   </front>
 </reference>
 <reference anchor="ZIP" target="http://www.iana.org/assignments/media-types/application/zip">
