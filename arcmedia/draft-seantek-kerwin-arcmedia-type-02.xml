@@ -648,6 +648,13 @@ subtypes along with this effort:</t>
 </section>
 <section anchor="change-log" title="Change Log">
 
+<t>Changes since -01</t>
+
+<t><list style="symbols">
+  <t>incorporate suggested text from Stian Soiland-Reyes for Section 7 (Fragment
+Identifier Syntax)</t>
+</list></t>
+
 <t>Changes since -00</t>
 
 <t><list style="symbols">

@@ -427,6 +427,11 @@ Disk Imaging
 
 # Change Log
 
+Changes since -01
+
+ * incorporate suggested text from Stian Soiland-Reyes for Section 7 (Fragment
+   Identifier Syntax)
+
 Changes since -00
 
  * retool to use XML2RFC -- lots of layout changes

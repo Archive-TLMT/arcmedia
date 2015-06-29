@@ -489,15 +489,15 @@ Appendix A.  Expected Subtypes
 
 Appendix B.  Change Log
 
+   Changes since -01
+
+   o  incorporate suggested text from Stian Soiland-Reyes for Section 7
+      (Fragment Identifier Syntax)
+
    Changes since -00
 
    o  retool to use XML2RFC - lots of layout changes
 
-   o  remove large sections of text, as suggested by Ned Freed and Dave
-      Crocker
-
-   o  replace "primary" with "top-level", and "content-type" with "media
-      type" throughout
 
 
 
@@ -505,6 +505,12 @@ Leonard & Kerwin        Expires December 31, 2015               [Page 9]
 
 Internet-Draft                  arcmedia                       June 2015
 
+
+   o  remove large sections of text, as suggested by Ned Freed and Dave
+      Crocker
+
+   o  replace "primary" with "top-level", and "content-type" with "media
+      type" throughout
 
    o  add reference to RFC 6838 (BCP 13) - Media Type Specifications and
       Registration Procedures
@@ -528,12 +534,6 @@ Authors' Addresses
 
    Email: matthew@kerwin.net.au
    URI:   http://matthew.kerwin.net.au/
-
-
-
-
-
-
 
 
 
