@@ -312,12 +312,6 @@ fragment identifier like “#/foo.html” might or might not specify a
 resource of the content type “text/html”.</t>
 
 
-<t>[[TODO: consider how to provide a fragment for content in the
-archive. NB: most archives do NOT provide Content-Type/media type
-information! So /foo.html being an HTML file is just an <spanx style="emph">assumption</spanx>,
-and possibly a very wrong one at that. There is no IETF registry for
-file extensions.  Note the similarities with this and the file: URI]]</t>
-
 </section>
 <section anchor="piped-composite-type-suffix-syntax" title="Piped-Composite Type Suffix Syntax">
 
