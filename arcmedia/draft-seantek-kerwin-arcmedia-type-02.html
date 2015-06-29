@@ -12,6 +12,28 @@
 	  a {
 	  text-decoration: none;
 	  }
+      /* info code from SantaKlauss at http://www.madaboutstyle.com/tooltip2.html */
+      a.info {
+          /* This is the key. */
+          position: relative;
+          z-index: 24;
+          text-decoration: none;
+      }
+      a.info:hover {
+          z-index: 25;
+          color: #FFF; background-color: #900;
+      }
+      a.info span { display: none; }
+      a.info:hover span.info {
+          /* The span will display just on :hover state. */
+          display: block;
+          position: absolute;
+          font-size: smaller;
+          top: 2em; left: -5em; width: 15em;
+          padding: 2px; border: 1px solid #333;
+          color: #900; background-color: #EEE;
+          text-align: left;
+      }
 	  a.smpl {
 	  color: black;
 	  }
@@ -370,14 +392,14 @@
 <link href="#rfc.authors" rel="Chapter"/>
 
 
-  <meta name="generator" content="xml2rfc version 2.4.3 - http://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.5.0 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Leonard, S. and M. Kerwin" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-seantek-kerwin-arcmedia-type-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-5-13" />
-  <meta name="dct.abstract" content="This document defines a new top-level media type to be known as “archive”, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
-  <meta name="description" content="This document defines a new top-level media type to be known as “archive”, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-6-29" />
+  <meta name="dct.abstract" content="This document defines a new top-level media type to be known as &#8220;archive&#8221;, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
+  <meta name="description" content="This document defines a new top-level media type to be known as &#8220;archive&#8221;, which defines a fundamental type of media with unique presentational, hardware, and processing aspects." />
 
 </head>
 
@@ -400,11 +422,11 @@
 </tr>
 <tr>
   <td class="left">Intended status: Informational</td>
-  <td class="right"></td>
+  <td class="right">June 29, 2015</td>
 </tr>
 <tr>
-  <td class="left">Expires: November 14, 2015</td>
-  <td class="right">May 13, 2015</td>
+  <td class="left">Expires: December 31, 2015</td>
+  <td class="right"></td>
 </tr>
 
     	
@@ -424,7 +446,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on November 14, 2015.</p>
+<p>This Internet-Draft will expire on December 31, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -437,8 +459,8 @@
   <ul class="toc">
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
-<li>1.1.   <a href="#rfc.section.1.1">Notational Conventions</a></li>
-<li>2.   <a href="#rfc.section.2">Definition of an archive</a></li>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Notational Conventions</a></li>
+</ul><li>2.   <a href="#rfc.section.2">Definition of an archive</a></li>
 <li>3.   <a href="#rfc.section.3">Encoding and Transport</a></li>
 <li>4.   <a href="#rfc.section.4">Registration Template</a></li>
 <li>5.   <a href="#rfc.section.5">Common Required and Optional Parameters</a></li>
@@ -447,9 +469,9 @@
 <li>8.   <a href="#rfc.section.8">Piped-Composite Type Suffix Syntax</a></li>
 <li>9.   <a href="#rfc.section.9">Security Considerations</a></li>
 <li>10.   <a href="#rfc.references">References</a></li>
-<li>10.1.   <a href="#rfc.references.1">Normative References</a></li>
+<ul><li>10.1.   <a href="#rfc.references.1">Normative References</a></li>
 <li>10.2.   <a href="#rfc.references.2">Informative References</a></li>
-<li>Appendix A.   <a href="#rfc.appendix.A">Expected Subtypes</a></li>
+</ul><li>Appendix A.   <a href="#rfc.appendix.A">Expected Subtypes</a></li>
 <li>Appendix B.   <a href="#rfc.appendix.B">Change Log</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
@@ -554,8 +576,12 @@
 <p id="rfc.section.6.p.3">The TAR format (or family of formats, including cpio and ustar) was originally designed for streaming to and from tape devices, so splitting is accomplished differently.</p>
 <p id="rfc.section.6.p.4">[[TODO: Consider how to label this content. archive/zip^01? archive/zip; split=01? Something else? How shall 01 be associated with 02, 03, etc., when the Content-Disposition: ; filename=&#8221;&#8221; parameter is &#8220;presentation-information&#8221; and may be separated from the Content-Type header information?]]</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#fragments" id="fragments">Fragment Identifier Syntax</a></h1>
-<p id="rfc.section.7.p.1">As archives usually store objects in hierarchical structures similar to filesystems, archives can serve as virtual filesystems.  Respondents have noted that the objects stored in an archive can be addressed by a fragment syntax that resembles a filesystem path.  At the same time, archives can store objects in different ways (along with different types of metadata), suggesting that a common baseline with flexible extension points is more appropriate than a fixed universal syntax.  [[TODO: This will be explored in future drafts.]]</p>
-<p id="rfc.section.7.p.2">[[TODO: consider how to provide a fragment for content in the archive. NB: most archives do NOT provide Content-Type/media type information! So /foo.html being an HTML file is just an <em>assumption</em>, and possibly a very wrong one at that. There is no IETF registry for file extensions.  Note the similarities with this and the file: URI]]</p>
+<p id="rfc.section.7.p.1">As archives usually store objects in hierarchical structures similar to filesystems, archives can serve as virtual filesystems.  Respondents have noted that the objects stored in an archive can be addressed by a fragment syntax that resembles a filesystem path.  At the same time, archives can store objects in different ways (along with different types of metadata), suggesting that a common baseline with flexible extension points is more appropriate than a fixed universal syntax.</p>
+<p id="rfc.section.7.p.2">Fragment identifiers for an archive/* media type which start with the &#8220;/&#8221; character specifies a resource path within the archive.  Resource paths MUST use &#8220;/&#8221; as the path separator to adress resources within a directory or folder-like structure, e.g. &#8220;#/folder3/file.txt&#8221;.  The fragment identifier for a folder SHOULD terminate with a &#8220;/&#8221;, e.g.  &#8220;#/folder3/&#8221;.  The fragment identifier &#8220;/&#8221; identifies the root folder of the archive.  The encoding of resource path fragment identifiers represented as bytes SHOULD be encoded as in <a href="#RFC3987">[RFC3987]</a> (%-escaped UTF-8), even if the archive uses a different internal encoding for file paths.  Characters in a file paths that are not valid fragment characters used with <a href="#RFC3986">[RFC3986]</a> or <a href="#RFC3987">[RFC3987]</a> MUST be %-escaped appropriately.</p>
+<p id="rfc.section.7.p.3">Registrations MAY specify custom fragment identifiers starting with any other valid characters, e.g. &#8220;#2/file.txt&#8221; to address &#8220;file.txt&#8221; on the internal partition 2 of a disk image.  Registrations for archive formats that contain multiple roots MAY choose a dedicated root to correspond to &#8220;/&#8221; paths (e.g. the first partition), or in its registration declare it does not support paths starting with &#8220;/&#8221; at all.</p>
+<p id="rfc.section.7.p.4">Client behaviour for adressing archive fragment paths is not specified.  Typical behaviour might be to open a browser window of the archive and highlight the identified resource.  Security considerations should be taken into account before opening the fragment-identified resource.</p>
+<p id="rfc.section.7.p.5">Archive formats often do not specify the media type of their constituent resources, with clients usually relying on a mixture of file extensions and magic number to guess the media type.  Thus a fragment identifier like &#8220;#/foo.html&#8221; might or might not specify a resource of the content type &#8220;text/html&#8221;.</p>
+<p id="rfc.section.7.p.6">[[TODO: consider how to provide a fragment for content in the archive. NB: most archives do NOT provide Content-Type/media type information! So /foo.html being an HTML file is just an <em>assumption</em>, and possibly a very wrong one at that. There is no IETF registry for file extensions.  Note the similarities with this and the file: URI]]</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#piped-composite-type-suffix-syntax" id="piped-composite-type-suffix-syntax">Piped-Composite Type Suffix Syntax</a></h1>
 <p id="rfc.section.8.p.1">Some archive formats provide a subset of desired services, so it is common for multiple formats to be used in series. For example, the ustar format <a href="#TAR">[TAR]</a> provides aggregation without compression, while gzip <a href="#RFC6713">[RFC6713]</a> provides compression without aggregation, so it is common to encounter archives comprising a ustar archive encapsulated within a gzip archive.  </p>
 <p id="rfc.section.8.p.2">Archives that support such compositing have the option of registering both the individual type and composite subtypes.  Composite subtype names should use the caret character &#8220;^&#8221; to distinguish subsequent layers of encapsulation.  See section 4.2 of <a href="#RFC6838">[RFC6838]</a>.  Having both registrations provides applications the option of choosing between, for example, &#8220;archive/tar&#8221; + Content-Encoding &#8220;gzip&#8221;, or &#8220;archive/tar^gz&#8221;.</p>
@@ -576,6 +602,18 @@
         <b id="RFC2119">[RFC2119]</b>
       </td>
       <td class="top"><a href="mailto:sob@harvard.edu" title="Harvard University">Bradner, S.</a>, "<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, March 1997.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC3986">[RFC3986]</b>
+      </td>
+      <td class="top"><a href="mailto:timbl@w3.org" title="World Wide Web Consortium">Berners-Lee, T.</a>, <a href="mailto:fielding@gbiv.com" title="Day Software">Fielding, R.</a> and <a href="mailto:LMM@acm.org" title="Adobe Systems Incorporated">L. Masinter</a>, "<a href="http://tools.ietf.org/html/rfc3986">Uniform Resource Identifier (URI): Generic Syntax</a>", STD 66, RFC 3986, January 2005.</td>
+    </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC3987">[RFC3987]</b>
+      </td>
+      <td class="top"><a>Duerst, M.</a> and <a>M. Suignard</a>, "<a href="http://tools.ietf.org/html/rfc3987">Internationalized Resource Identifiers (IRIs)</a>", RFC 3987, January 2005.</td>
     </tr>
     <tr>
       <td class="reference">
@@ -635,7 +673,13 @@
   <dd style="margin-left: 8">ISO, NRG, BIN/CUE, VMDK, WIM, PartImage, IMG/IMA/IMZ, DMG</dd>
 </dl>
 <h1 id="rfc.appendix.B"><a href="#rfc.appendix.B">Appendix B.</a> <a href="#change-log" id="change-log">Change Log</a></h1>
-<p id="rfc.section.B.p.1">Changes since -00</p>
+<p id="rfc.section.B.p.1">Changes since -01</p>
+<p/>
+
+<ul>
+  <li>incorporate suggested text from Stian Soiland-Reyes for Section 7 (Fragment Identifier Syntax)</li>
+</ul>
+<p id="rfc.section.B.p.3">Changes since -00</p>
 <p/>
 
 <ul>
@@ -658,8 +702,8 @@
 	</span>
 	<span class="org vcardline">Penango, Inc.</span>
 	<span class="adr">
-	  <span>5900 Wilshire Boulevard</span>
-<span>21st Floor</span>
+	  <span class="vcardline">5900 Wilshire Boulevard</span>
+<span class="vcardline">21st Floor</span>
 
 	  <span class="vcardline">
 		<span class="locality">Los Angeles</span>,  
