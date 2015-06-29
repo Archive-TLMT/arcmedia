@@ -366,6 +366,12 @@ constituent resources, with clients usually relying on a mixture of
 file extensions and magic number to guess the media type.  Thus a
 fragment identifier like "#/foo.html" might or might not specify a
 resource of the content type "text/html".
+{::comment}
+Links to other fragment identifier resources from W3C:
+* https://www.w3.org/dpub/IG/wiki/Task_Force/identifiers
+* https://www.w3.org/TR/annotation-model/#fragment-uris
+  -- Heather Flanagan
+{:/comment}
 
 \[\[TODO: consider how to provide a fragment for content in the
 archive. NB: most archives do NOT provide Content-Type/media type
