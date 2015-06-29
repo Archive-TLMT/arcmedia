@@ -43,6 +43,8 @@ author:
 normative:
   RFC2045:
   RFC2119:
+  RFC3986:
+  RFC3987:
   RFC6838:
 
 informative:
@@ -331,7 +333,39 @@ fragment syntax that resembles a filesystem path.  At the same time,
 archives can store objects in different ways (along with different
 types of metadata), suggesting that a common baseline with flexible
 extension points is more appropriate than a fixed universal syntax.
-\[\[TODO: This will be explored in future drafts.\]\]
+
+Fragment identifiers for an archive/* media type which start with the
+"/" character specifies a resource path within the archive.  Resource
+paths MUST use "/" as the path separator to adress resources within a
+directory or folder-like structure, e.g. "#/folder3/file.txt".  The
+fragment identifier for a folder SHOULD terminate with a "/", e.g.
+"#/folder3/".  The fragment identifier "/" identifies the root folder
+of the archive.  The encoding of resource path fragment identifiers
+represented as bytes SHOULD be encoded as in {{RFC3987}} (%-escaped
+UTF-8), even if the archive uses a different internal encoding for
+file paths.  Characters in a file paths that are not valid fragment
+characters used with {{RFC3986}} or {{RFC3987}} MUST be %-escaped
+appropriately.
+
+Registrations MAY specify custom fragment identifiers starting with
+any other valid characters, e.g. "#2/file.txt" to address "file.txt"
+on the internal partition 2 of a disk image.  Registrations for
+archive formats that contain multiple roots MAY choose a dedicated
+root to correspond to "/" paths (e.g. the first partition), or in its
+registration declare it does not support paths starting with "/" at
+all.
+
+Client behaviour for adressing archive fragment paths is not
+specified.  Typical behaviour might be to open a browser window of
+the archive and highlight the identified resource.  Security
+considerations should be taken into account before opening the
+fragment-identified resource.
+
+Archive formats often do not specify the media type of their
+constituent resources, with clients usually relying on a mixture of
+file extensions and magic number to guess the media type.  Thus a
+fragment identifier like "#/foo.html" might or might not specify a
+resource of the content type "text/html".
 
 \[\[TODO: consider how to provide a fragment for content in the
 archive. NB: most archives do NOT provide Content-Type/media type
