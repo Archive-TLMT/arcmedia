@@ -362,8 +362,8 @@ Internet-Draft                  arcmedia                       June 2015
    on the internal partition 2 of a disk image.  Registrations for
    archive formats that contain multiple roots MAY choose a dedicated
    root to correspond to "/" paths (e.g. the first partition), or in its
-   registration declare it does not support paths starting with "/" at
-   all.
+   registration declare that it does not support paths starting with "/"
+   at all.
 
    Client behaviour for adressing archive fragment paths is not
    specified.  Typical behaviour might be to open a browser window of

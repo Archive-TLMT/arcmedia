@@ -288,15 +288,16 @@ represented as bytes SHOULD be encoded as in <xref target="RFC3987"/> (%-escaped
 UTF-8), even if the archive uses a different internal encoding for
 file paths.  Characters in a file paths that are not valid fragment
 characters used with <xref target="RFC3986"/> or <xref target="RFC3987"/> MUST be %-escaped
-appropriately.</t>
+appropriately.
+</t>
 
 <t>Registrations MAY specify custom fragment identifiers starting with
 any other valid characters, e.g. “#2/file.txt” to address “file.txt”
 on the internal partition 2 of a disk image.  Registrations for
 archive formats that contain multiple roots MAY choose a dedicated
 root to correspond to “/” paths (e.g. the first partition), or in its
-registration declare it does not support paths starting with “/” at
-all.</t>
+registration declare that it does not support paths starting with “/”
+at all.</t>
 
 <t>Client behaviour for adressing archive fragment paths is not
 specified.  Typical behaviour might be to open a browser window of
@@ -309,6 +310,7 @@ constituent resources, with clients usually relying on a mixture of
 file extensions and magic number to guess the media type.  Thus a
 fragment identifier like “#/foo.html” might or might not specify a
 resource of the content type “text/html”.</t>
+
 
 <t>[[TODO: consider how to provide a fragment for content in the
 archive. NB: most archives do NOT provide Content-Type/media type
