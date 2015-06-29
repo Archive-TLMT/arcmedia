@@ -11,7 +11,8 @@
 Current draft source can be found in the `arcmedia` directory.
 
 
-## NOTE WELL
+NOTE WELL
+---------
 
 Any submission to the [IETF](https://www.ietf.org/) intended by the
 Contributor for publication as all or part of an IETF Internet-Draft or
@@ -49,3 +50,38 @@ Statements.
 A participant in any IETF activity acknowledges that written, audio and
 video records of meetings may be made and may be available to the
 public.
+
+
+Contributing
+============
+
+These drafts should be discussed on the IETF Arcmedia discussion list
+<arcmedia@ietf.org>.  Pull requests are welcome.
+
+Please try to ensure that pull requests update the `draft.md`
+documents.
+
+
+Tool Chain
+----------
+
+    markdown --> xml --> txt
+
+The ultimate source file for each draft is `draft.md`
+
+It is interpreted using the [kramdown-rfc2629][] parser to produce a
+standard [RFC 2629][rfc2629] XML file.
+
+The XML file is transformed using [xml2rfc][] to produce a plain text
+internet draft, and a beautiful HTML document.
+
+There is a Makefile in the same directory as each draft to automate
+the process.
+
+The entire toolchain was copied from <https://github.com/mnot/I-D/>
+
+
+[kramdown-rfc2629]: https://github.com/cabo/kramdown-rfc2629
+[rfc2629]: https://tools.ietf.org/html/rfc2629
+[xml2rfc]: http://xml2rfc.ietf.org/
+
