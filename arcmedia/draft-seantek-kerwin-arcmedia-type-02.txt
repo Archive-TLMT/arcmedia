@@ -68,11 +68,11 @@ Table of Contents
    5.  Common Required and Optional Parameters . . . . . . . . . . .   5
    6.  Split Archives  . . . . . . . . . . . . . . . . . . . . . . .   6
    7.  Fragment Identifier Syntax  . . . . . . . . . . . . . . . . .   6
-   8.  Piped-Composite Type Suffix Syntax  . . . . . . . . . . . . .   8
+   8.  Piped-Composite Type Suffix Syntax  . . . . . . . . . . . . .   7
    9.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
    10. References  . . . . . . . . . . . . . . . . . . . . . . . . .   8
      10.1.  Normative References . . . . . . . . . . . . . . . . . .   8
-     10.2.  Informative References . . . . . . . . . . . . . . . . .   9
+     10.2.  Informative References . . . . . . . . . . . . . . . . .   8
    Appendix A.  Expected Subtypes  . . . . . . . . . . . . . . . . .   9
    Appendix B.  Change Log . . . . . . . . . . . . . . . . . . . . .   9
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  10
@@ -362,8 +362,8 @@ Internet-Draft                  arcmedia                       June 2015
    on the internal partition 2 of a disk image.  Registrations for
    archive formats that contain multiple roots MAY choose a dedicated
    root to correspond to "/" paths (e.g. the first partition), or in its
-   registration declare it does not support paths starting with "/" at
-   all.
+   registration declare that it does not support paths starting with "/"
+   at all.
 
    Client behaviour for adressing archive fragment paths is not
    specified.  Typical behaviour might be to open a browser window of
@@ -377,23 +377,6 @@ Internet-Draft                  arcmedia                       June 2015
    fragment identifier like "#/foo.html" might or might not specify a
    resource of the content type "text/html".
 
-   [[TODO: consider how to provide a fragment for content in the
-   archive.  NB: most archives do NOT provide Content-Type/media type
-   information!  So /foo.html being an HTML file is just an
-   _assumption_, and possibly a very wrong one at that.  There is no
-   IETF registry for file extensions.  Note the similarities with this
-   and the file: URI]]
-
-
-
-
-
-
-Leonard & Kerwin        Expires December 31, 2015               [Page 7]
-
-Internet-Draft                  arcmedia                       June 2015
-
-
 8.  Piped-Composite Type Suffix Syntax
 
    Some archive formats provide a subset of desired services, so it is
@@ -402,6 +385,14 @@ Internet-Draft                  arcmedia                       June 2015
    gzip [RFC6713] provides compression without aggregation, so it is
    common to encounter archives comprising a ustar archive encapsulated
    within a gzip archive.
+
+
+
+
+Leonard & Kerwin        Expires December 31, 2015               [Page 7]
+
+Internet-Draft                  arcmedia                       June 2015
+
 
    Archives that support such compositing have the option of registering
    both the individual type and composite subtypes.  Composite subtype
@@ -440,16 +431,6 @@ Internet-Draft                  arcmedia                       June 2015
               Specifications and Registration Procedures", BCP 13, RFC
               6838, January 2013.
 
-
-
-
-
-
-Leonard & Kerwin        Expires December 31, 2015               [Page 8]
-
-Internet-Draft                  arcmedia                       June 2015
-
-
 10.2.  Informative References
 
    [CP437]    Microsoft Developer Network, "Code Page 437 MS-DOS Latin
@@ -460,6 +441,14 @@ Internet-Draft                  arcmedia                       June 2015
               International Organization for Standardization,
               "Information Technology - Universal Multiple-Octet Coded
               Character Set (UCS)", ISO/IEC 10646:2003, December 2003.
+
+
+
+
+Leonard & Kerwin        Expires December 31, 2015               [Page 8]
+
+Internet-Draft                  arcmedia                       June 2015
+
 
    [RFC6713]  Levine, J., "The 'application/zlib' and 'application/gzip'
               Media Types", RFC 6713, August 2012.
@@ -498,14 +487,6 @@ Appendix B.  Change Log
 
    o  retool to use XML2RFC - lots of layout changes
 
-
-
-
-Leonard & Kerwin        Expires December 31, 2015               [Page 9]
-
-Internet-Draft                  arcmedia                       June 2015
-
-
    o  remove large sections of text, as suggested by Ned Freed and Dave
       Crocker
 
@@ -516,6 +497,14 @@ Internet-Draft                  arcmedia                       June 2015
       Registration Procedures
 
    o  lots of editorial changes
+
+
+
+
+Leonard & Kerwin        Expires December 31, 2015               [Page 9]
+
+Internet-Draft                  arcmedia                       June 2015
+
 
 Authors' Addresses
 
@@ -534,6 +523,17 @@ Authors' Addresses
 
    Email: matthew@kerwin.net.au
    URI:   http://matthew.kerwin.net.au/
+
+
+
+
+
+
+
+
+
+
+
 
 
 
