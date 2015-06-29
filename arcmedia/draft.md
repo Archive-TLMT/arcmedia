@@ -375,12 +375,6 @@ Links to other fragment identifier resources from W3C:
   -- Heather Flanagan
 {:/comment}
 
-\[\[TODO: consider how to provide a fragment for content in the
-archive. NB: most archives do NOT provide Content-Type/media type
-information! So /foo.html being an HTML file is just an *assumption*,
-and possibly a very wrong one at that. There is no IETF registry for
-file extensions.  Note the similarities with this and the file: URI\]\]
-
 
 # Piped-Composite Type Suffix Syntax
 
