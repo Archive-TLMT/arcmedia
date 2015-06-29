@@ -346,14 +346,15 @@ UTF-8), even if the archive uses a different internal encoding for
 file paths.  Characters in a file paths that are not valid fragment
 characters used with {{RFC3986}} or {{RFC3987}} MUST be %-escaped
 appropriately.
+{::comment}i.e. absolute file URI paths ?{:/comment}
 
 Registrations MAY specify custom fragment identifiers starting with
 any other valid characters, e.g. "#2/file.txt" to address "file.txt"
 on the internal partition 2 of a disk image.  Registrations for
 archive formats that contain multiple roots MAY choose a dedicated
 root to correspond to "/" paths (e.g. the first partition), or in its
-registration declare it does not support paths starting with "/" at
-all.
+registration declare that it does not support paths starting with "/"
+at all.
 
 Client behaviour for adressing archive fragment paths is not
 specified.  Typical behaviour might be to open a browser window of
@@ -366,6 +367,7 @@ constituent resources, with clients usually relying on a mixture of
 file extensions and magic number to guess the media type.  Thus a
 fragment identifier like "#/foo.html" might or might not specify a
 resource of the content type "text/html".
+
 {::comment}
 Links to other fragment identifier resources from W3C:
 * https://www.w3.org/dpub/IG/wiki/Task_Force/identifiers
